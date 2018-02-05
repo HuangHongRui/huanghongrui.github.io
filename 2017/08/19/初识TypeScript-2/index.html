@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>初识TypeScript_2 | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原始数据类型JS 的类型分为两种：  原始数据类型（Primitive data types）包括：布尔值、数值、字符串、null、undefined Symbol。 对象类型（Object types）。  五种原始数据类型在 TypeScript 中的应用。 布尔值布尔值是最基础的数据类型，在 TypeScript 中，使用 boolean 定义布尔值类型：1let isDone: boole">
+<meta name="keywords" content="ScriptType">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识TypeScript_2">
+<meta property="og:url" content="http://blog.luckyman.xyz/2017/08/19/初识TypeScript-2/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="原始数据类型JS 的类型分为两种：  原始数据类型（Primitive data types）包括：布尔值、数值、字符串、null、undefined Symbol。 对象类型（Object types）。  五种原始数据类型在 TypeScript 中的应用。 布尔值布尔值是最基础的数据类型，在 TypeScript 中，使用 boolean 定义布尔值类型：1let isDone: boole">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T04:14:09.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识TypeScript_2">
+<meta name="twitter:description" content="原始数据类型JS 的类型分为两种：  原始数据类型（Primitive data types）包括：布尔值、数值、字符串、null、undefined Symbol。 对象类型（Object types）。  五种原始数据类型在 TypeScript 中的应用。 布尔值布尔值是最基础的数据类型，在 TypeScript 中，使用 boolean 定义布尔值类型：1let isDone: boole">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-初识TypeScript-2" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/19/初识TypeScript-2/" class="article-date">
+  <time class="post-time" datetime="2017-08-19T08:48:44.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">19</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识TypeScript_2
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/新知识/">新知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h2><p>JS 的类型分为两种：</p>
+<ul>
+<li>原始数据类型（Primitive data types）<strong>包括：布尔值、数值、字符串、null、undefined Symbol。</strong></li>
+<li>对象类型（Object types）。</li>
+</ul>
+<p>五种原始数据类型在 TypeScript 中的应用。</p>
+<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><p>布尔值是最基础的数据类型，在 TypeScript 中，使用 boolean 定义布尔值类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let isDone: boolean = false;</div></pre></td></tr></table></figure></p>
+<p>注意，使用构造函数 Boolean 创造的对象不是布尔值：<br><code>let createdByNewBoolean: boolean = new Boolean(1);</code><br>报错: // index.ts(1,5): error TS2322: Type ‘Boolean’ is not assignable to type ‘boolean’.<br>      // 后面约定，未强调编译错误的代码片段，默认为编译通过</p>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>使用 number 定义数值类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> let decLiteral: number = 6;</div><div class="line">let hexLiteral: number = 0xf00d;</div><div class="line">let notANumber: number = NaN;</div><div class="line">let infinityNumber: number = Infinity;</div></pre></td></tr></table></figure></p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>使用 string 定义字符串类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let myName: string = &apos;Xcat Liu&apos;;</div><div class="line">// 模板字符串</div><div class="line">let sentence: string = `Hello, my name is $&#123;myName&#125;. I&apos;ll be $&#123;myAge + 1&#125; years old next month.`;</div><div class="line">// 编译结果：模板字符串</div><div class="line">var sentence = &quot;Hello, my name is &quot; + myName + &quot;.\nI&apos;ll be &quot; + (myAge + 1) + &quot; years old next month.&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h3><p>JS 没有空值（Void）的概念，在 TypeScirpt 中，可以用 void 表示没有任何返回值的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function alertName(): void &#123;</div><div class="line">  alert(&apos;My name is Rui&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>声明一个 void 类型的变量没有什么用，因为你只能将它赋值为 undefined 和 null：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let unusable: void = undefined;</div></pre></td></tr></table></figure></p>
+<h3 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h3><p>在 TypeScript 中，可以使用 null 和 undefined 来定义这两个原始数据类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let u: undefined = undefined;</div><div class="line">let n: null = null;</div></pre></td></tr></table></figure></p>
+<p><strong>undefined 类型的变量只能被赋值为 undefined，null 类型的变量只能被赋值为 null。</strong></p>
+<p>与 void 的 <strong>区别</strong> 是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 不报错： let num: number = undefined;</div><div class="line">// 不报错： let u: undefined; let num: number = u;</div></pre></td></tr></table></figure></p>
+<p>void 类型的变量不能赋值给 number 类型的变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let u: void; let num: number = u;</div><div class="line">报错：// index.ts(2,5): error TS2322: Type &apos;void&apos; is not assignable to type &apos;number&apos;.</div></pre></td></tr></table></figure></p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>TypeScript像JS一样可以操作数组元素。 有两种方式可以定义数组。<br>第一种，可以在元素类型后面接上 []，表示由此类型元素组成的一个数组：<br><code>let list: number[] = [1, 2, 3];</code><br>第二种方式是使用数组泛型，Array&lt;元素类型&gt;：<br><code>let list: Array&lt;string&gt; = [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;];</code></p>
+<h3 id="元组-Tuple"><a href="#元组-Tuple" class="headerlink" title="元组 Tuple"></a>元组 Tuple</h3><p>元组类型允许表示一个<strong>已知元素数量和类型</strong>的数组，各元素的类型不必相同。 (比如，你可以定义一对值分别为 string和number类型的元组。)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let x: [string, number];</div><div class="line">x = [&apos;hello&apos;, 10]; // 正确</div><div class="line">x = [10, &apos;hello&apos;]; // Error</div></pre></td></tr></table></figure></p>
+<p>当访问一个已知索引的元素，会得到正确的类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(x[0].substr(1)); // OK</div><div class="line">console.log(x[1].substr(1)); // Error, &apos;number&apos; does not have &apos;substr&apos;</div></pre></td></tr></table></figure></p>
+<p>当访问一个越界的元素，会使用联合类型替代：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x[3] = &apos;world&apos;; // OK, 字符串可以赋值给(string | number)类型</div><div class="line">console.log(x[5].toString()); // OK, &apos;string&apos; 和 &apos;number&apos; 都有 toString</div><div class="line">x[6] = true; // Error, 布尔不是(string | number)类型</div></pre></td></tr></table></figure></p>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p><code>enum</code>类型是对JS 像C#等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enum Color &#123;Red, Green, Blue&#125;</div><div class="line">let c: Color = Color.Green;</div></pre></td></tr></table></figure></p>
+<p>默认情况下，从0开始为元素编号。<br>也可以手动的指定成员的数值。 例如，我们将上面的例子改成从 1开始编号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enum Color &#123;Red = 1, Green, Blue&#125;</div><div class="line">let c: Color = Color.Green;</div></pre></td></tr></table></figure></p>
+<p>或者，全部都采用手动赋值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enum Color &#123;Red = 1, Green = 2, Blue = 4&#125;</div><div class="line">let c: Color = Color.Green;</div></pre></td></tr></table></figure></p>
+<p>枚举类型提供的一个便利是你可以由枚举的值得到它的名字。 例如，我们知道数值为2，但是不确定它映射到Color里的哪个名字，我们可以查找相应的名字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enum Color &#123;Red = 1, Green, Blue&#125;</div><div class="line">let colorName: string = Color[2];</div></pre></td></tr></table></figure></p>
+<h3 id="Any"><a href="#Any" class="headerlink" title="Any"></a>Any</h3><p>有时，会想要为那些在编程阶段还不清楚类型的变量指定一个类型。<br>这些值可能来自于动态的内容，比如来自用户输入或第三方代码库。<br>这种情况下，我们不希望类型检查器对这些值进行检查而是直接让它们通过编译阶段的检查。<br>那么我们可以使用 <code>any类型</code>来标记这些变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let notSure: any = 4;</div><div class="line">notSure = &quot;maybe a string instead&quot;;</div><div class="line">notSure = false;</div></pre></td></tr></table></figure></p>
+<p>在对现有代码进行改写的时候，any类型是十分有用的， 它允许你在编译时可选择地包含或移除类型检查。<br>当你只知道一部分数据的类型时，any类型也是有用的。 比如，你有一个数组，它包含了不同的类型的数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let list: any[] = [1, true, &quot;free&quot;];</div><div class="line">list[1] = 100;</div></pre></td></tr></table></figure></p>
+<h3 id="Never"><a href="#Never" class="headerlink" title="Never"></a>Never</h3><p><code>never类型</code>表示的是那些永不存在的值的类型。<br>例如， never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型；<br>变量也可能是 never类型，当它们被永不为真的类型保护所约束时。</p>
+<p>never类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是never的子类型或可以赋值给never类型（除了never本身之外）。 即使 any也不可以赋值给never。</p>
+<p>下面是一些返回never类型的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 返回never的函数必须存在无法达到的终点</div><div class="line">function error(message: string): never &#123;</div><div class="line">    throw new Error(message);</div><div class="line">&#125;</div><div class="line">// 推断的返回值类型为never</div><div class="line">function fail() &#123;</div><div class="line">    return error(&quot;Something failed&quot;);</div><div class="line">&#125;</div><div class="line">// 返回never的函数必须存在无法达到的终点</div><div class="line">function infiniteLoop(): never &#123;</div><div class="line">    while (true) &#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><p>有时候你会遇到这样的情况，你会比TypeScript更了解某个值的详细信息。<br>通常这会发生在你清楚地知道一个实体具有比它现有类型更确切的类型。</p>
+<p>通过类型断言这种方式可以告诉编译器，<strong>“相信我，我知道自己在干什么”</strong>。<br>类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。<br>它没有运行时的影响，只是在编译阶段起作用。<br>TypeScript会假设你，程序员，已经进行了必须的检查。</p>
+<p>类型断言有两种形式:</p>
+<ul>
+<li><p>其一是“尖括号”语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let someValue: any = &quot;this is a string&quot;;</div><div class="line">let strLength: number = (&lt;string&gt;someValue).length;</div></pre></td></tr></table></figure>
+</li>
+<li><p>另一个为as语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let someValue: any = &quot;this is a string&quot;;</div><div class="line">let strLength: number = (someValue as string).length;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>两种形式是等价的。至于使用哪个大多数情况下是凭个人喜好；然而，当你<strong>在TypeScript里使用JSX时，只有 as语法 断言是被允许的。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/08/19/初识TypeScript-2/" data-id="cjd9qc64q001a9b9z84q40hgl" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScriptType/">ScriptType</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/20/React-LifeCycle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          理解 React 生命周期
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/17/初识TypeScript_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">初识TypeScript_1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

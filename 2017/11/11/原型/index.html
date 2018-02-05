@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>原型和原型链 | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="指向： 函数的 prototype 指向一个对象。该对象是调用构造函数生成的实例的原型。 原型： Js 对象创建时会与之关联另一个对象，而该对象则是其原型。每个对象均会在其原型继承属性。 __proto__： 每个Js对象（除null外）都具有的一个属性 —— 对象的原型。 构造函数的 prototype &amp;amp; 实例对象的 __proto__都拥有指向其原型的属性，而每个原型只有指向关联构">
+<meta name="keywords" content="原型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型和原型链">
+<meta property="og:url" content="http://blog.luckyman.xyz/2017/11/11/原型/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="指向： 函数的 prototype 指向一个对象。该对象是调用构造函数生成的实例的原型。 原型： Js 对象创建时会与之关联另一个对象，而该对象则是其原型。每个对象均会在其原型继承属性。 __proto__： 每个Js对象（除null外）都具有的一个属性 —— 对象的原型。 构造函数的 prototype &amp;amp; 实例对象的 __proto__都拥有指向其原型的属性，而每个原型只有指向关联构">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.luckyman.xyz/box/Pic/protoAndPrototype.svg">
+<meta property="og:updated_time" content="2018-02-05T04:14:09.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原型和原型链">
+<meta name="twitter:description" content="指向： 函数的 prototype 指向一个对象。该对象是调用构造函数生成的实例的原型。 原型： Js 对象创建时会与之关联另一个对象，而该对象则是其原型。每个对象均会在其原型继承属性。 __proto__： 每个Js对象（除null外）都具有的一个属性 —— 对象的原型。 构造函数的 prototype &amp;amp; 实例对象的 __proto__都拥有指向其原型的属性，而每个原型只有指向关联构">
+<meta name="twitter:image" content="http://blog.luckyman.xyz/box/Pic/protoAndPrototype.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-原型" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/11/原型/" class="article-date">
+  <time class="post-time" datetime="2017-11-11T03:11:04.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      原型和原型链
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://blog.luckyman.xyz/box/Pic/protoAndPrototype.svg" alt=""></p>
+<p>指向： 函数的 <code>prototype</code> 指向一个对象。该对象是调用构造函数生成的实例的原型。</p>
+<p>原型： Js 对象创建时会与之关联另一个对象，而该对象则是其原型。每个对象均会在其原型继承属性。</p>
+<p><code>__proto__</code>： 每个Js对象（除null外）都具有的一个属性 —— 对象的原型。</p>
+<p>构造函数的 <code>prototype</code> &amp; 实例对象的 <code>__proto__</code>都拥有指向其原型的属性，<br>而每个原型只有指向关联构造函数的属性 <code>constructor</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">构造函数 === 构造函数.prototype.constructor</div><div class="line">构造函数.prototype === 原型</div><div class="line">实例.__proto__ === 原型</div><div class="line">构造函数.prototype === 实例.__proto__</div></pre></td></tr></table></figure>
+<p>深度：</p>
+<p><code>__proto__</code> 实际来自 <code>Object.prototype</code> 可以认为是 <code>Getter/Setter</code> ,当使用 <code>objName.__proto__</code> 时，可理解为调用了 <code>Object.getPrototypeOf(objName)</code></p>
+<p>继承 的意思是 复制，然而 Js 默认是不会复制对象的属性的，Js 只在两个对象之间创建一个关联，这样一个对象可通过<strong>委托</strong>访问另一个对象的属性和方法，所以与其叫继承，委托的叫法反而更准确些。。</p>
+<p>小结：<br>函数通过 <code>prototype</code> 访问原型<br>对象通过 <code>__proto__</code> 访问原型<br>原型链通过<code>__proto__</code> 连接起来</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/11/11/原型/" data-id="cjd9qc64z001r9b9zqf02kaie" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/12/执行上下文/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          执行上下文
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/10/浏览器渲染原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">浏览器渲染原理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

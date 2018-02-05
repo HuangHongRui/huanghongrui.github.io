@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>两数之间的汉明距离 | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="两个整数之间的 汉明距离 是相应位不同的位置数。给定两个整数，x并y计算汉明距离。条件： 0 ≤ x，y &amp;lt;2的31次方 栗子： 12345输入： x = 1，y = 4 输出： 2 说明： 1（0 0 0 1）4（0 1 0 0）     ↑   ↑ 上述箭头指向相应位不同的位置。 解答： 12345678910111213141516171819202122232425262728293">
+<meta name="keywords" content="LeetCode,算法题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两数之间的汉明距离">
+<meta property="og:url" content="http://blog.luckyman.xyz/2017/10/26/DailyQuestion-1/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="两个整数之间的 汉明距离 是相应位不同的位置数。给定两个整数，x并y计算汉明距离。条件： 0 ≤ x，y &amp;lt;2的31次方 栗子： 12345输入： x = 1，y = 4 输出： 2 说明： 1（0 0 0 1）4（0 1 0 0）     ↑   ↑ 上述箭头指向相应位不同的位置。 解答： 12345678910111213141516171819202122232425262728293">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T04:14:09.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="两数之间的汉明距离">
+<meta name="twitter:description" content="两个整数之间的 汉明距离 是相应位不同的位置数。给定两个整数，x并y计算汉明距离。条件： 0 ≤ x，y &amp;lt;2的31次方 栗子： 12345输入： x = 1，y = 4 输出： 2 说明： 1（0 0 0 1）4（0 1 0 0）     ↑   ↑ 上述箭头指向相应位不同的位置。 解答： 12345678910111213141516171819202122232425262728293">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-DailyQuestion-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/DailyQuestion-1/" class="article-date">
+  <time class="post-time" datetime="2017-10-25T17:27:16.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      两数之间的汉明距离
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/每日一题/">每日一题</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>两个整数之间的 <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank" rel="external">汉明距离</a> 是相应位不同的位置数。<br>给定两个整数，x并y计算汉明距离。<br>条件： <code>0 ≤ x，y &lt;2的31次方</code></p>
+<p>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">输入： x = 1，y = 4 输出： 2 说明： </div><div class="line">1（0 0 0 1）</div><div class="line">4（0 1 0 0）</div><div class="line">     ↑   ↑ </div><div class="line">上述箭头指向相应位不同的位置。</div></pre></td></tr></table></figure>
+<p>解答：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">var hammingDistance = function(x, y) &#123;</div><div class="line">    var xBinary = x.toString(2),        //转为二进制</div><div class="line">        yBinary = y.toString(2),</div><div class="line">        xLen = xBinary.length,          //二进制的个数</div><div class="line">        yLen = yBinary.length,</div><div class="line">        yMaxNum = Math.pow(2,31),       //条件中的y的最大值</div><div class="line">        diffNum = Math.abs(xLen - yLen),//两参的个数差</div><div class="line">        resultNum = 0;                  //汉明距离</div><div class="line">    // 相比.个数少的二进制将在其前面加上（差数）个0；</div><div class="line">    function zero(sNum,diffNum)&#123;</div><div class="line">        for(var i=1; i&lt;diffNum+1; i++)&#123;</div><div class="line">            sNum = i*0 + sNum</div><div class="line">        &#125;</div><div class="line">        return sNum</div><div class="line">    &#125;</div><div class="line">    // 对比2个参数，如同个位上的值不同，则resultNum++；</div><div class="line">    function contrastNum(x,y)&#123;</div><div class="line">        for(var i=0; i&lt;x.length; i++)&#123;</div><div class="line">            if(x[i] != y[i])&#123;</div><div class="line">                resultNum++</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return resultNum</div><div class="line">    &#125;</div><div class="line">    if(x &gt;= 0 &amp;&amp; y &lt; yMaxNum)&#123;</div><div class="line">        switch(true)&#123;</div><div class="line">                case(xLen &gt; yLen):</div><div class="line">                    yBinary = zero(yBinary,diffNum);</div><div class="line">                    break;</div><div class="line">                case(xLen &lt; yLen):</div><div class="line">                    xBinary = zero(xBinary,diffNum);</div><div class="line">                    break;</div><div class="line">            default:</div><div class="line">                console.log(1)</div><div class="line">        &#125;</div><div class="line">        contrastNum(xBinary,yBinary)</div><div class="line">    &#125;</div><div class="line">    return(resultNum)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/10/26/DailyQuestion-1/" data-id="cjd9qc63u00029b9zozjj9pcg" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法题/">算法题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/27/DailyQuestion-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Judge Route Circle
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/25/输入URL到显示页面步骤/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">输入URL到显示页面步骤</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

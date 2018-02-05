@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Nginx初试 | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="公司所用的是 WINDOW 系统.服务端使用SSI(Server Side Include)——Win系统专属. 公司开发，为了不重复代码，将代码块使用&amp;lt;#include&amp;gt;插入到shtml中.(类似插脚本)。使用在SSI可以读取到插入的 &amp;lt;#include&amp;gt;(作用) 自己的笔记本是Linux系统，不想刷回Win，所以想要正常操作，肯定要鼓捣的-。-（事实上也没时间） 正文：">
+<meta name="keywords" content="Nginx,SSI,include">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx初试">
+<meta property="og:url" content="http://blog.luckyman.xyz/2017/12/03/NginxSSIInclude/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="公司所用的是 WINDOW 系统.服务端使用SSI(Server Side Include)——Win系统专属. 公司开发，为了不重复代码，将代码块使用&amp;lt;#include&amp;gt;插入到shtml中.(类似插脚本)。使用在SSI可以读取到插入的 &amp;lt;#include&amp;gt;(作用) 自己的笔记本是Linux系统，不想刷回Win，所以想要正常操作，肯定要鼓捣的-。-（事实上也没时间） 正文：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T04:14:09.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx初试">
+<meta name="twitter:description" content="公司所用的是 WINDOW 系统.服务端使用SSI(Server Side Include)——Win系统专属. 公司开发，为了不重复代码，将代码块使用&amp;lt;#include&amp;gt;插入到shtml中.(类似插脚本)。使用在SSI可以读取到插入的 &amp;lt;#include&amp;gt;(作用) 自己的笔记本是Linux系统，不想刷回Win，所以想要正常操作，肯定要鼓捣的-。-（事实上也没时间） 正文：">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-NginxSSIInclude" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/03/NginxSSIInclude/" class="article-date">
+  <time class="post-time" datetime="2017-12-03T15:19:15.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nginx初试
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/服务端/">服务端</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司所用的是 WINDOW 系统.服务端使用SSI(Server Side Include)——Win系统专属.</p>
+<p>公司开发，为了不重复代码，将代码块使用<code>&lt;#include&gt;</code>插入到shtml中.(类似插脚本)。<br>使用在SSI可以读取到插入的 &lt;#include&gt;(作用)</p>
+<p>自己的笔记本是Linux系统，不想刷回Win，所以想要正常操作，肯定要鼓捣的-。-（事实上也没时间）</p>
+<h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><p>Nginx（发音同engine x）是一个 Web服务器，也可以用作反向代理，负载平衡器和 HTTP缓存。<br>经过了解 Nginx 可以代替 SSi..以下是操作过程： [记得用sudo权限]</p>
+<p>下载可使用该命令：<code>wget 包链接</code></p>
+<p>1、下载最新安装包.<a href="https://nginx.org/en/download.html" target="_blank" rel="external">nginx地址</a></p>
+<p>2、放在 <code>/opt/nginx/</code> 中，解压并进入。</p>
+<p>3、考虑到需要让Nginx的SSI也支持相对路径，所以进入后，找到其该文件<code>src/http/modules/ngx_http_ssi_filter_module.c</code>.修改其内代码块：注释了!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">if (ngx_http_parse_unsafe_uri(r, uri, &amp;args, &amp;flags) != NGX_OK) &#123;</div><div class="line">        return NGX_HTTP_SSI_ERROR;</div><div class="line">    &#125;</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>3、使用命令： <code>./configure --prefix=/opt/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module</code> 编译.<br><code>--prefix</code>可指定安装目录，不填则默认安装目录为<code>/usr/local/nginx</code></p>
+<p>4、使用命令： <code>make &amp;&amp; make install</code></p>
+<p>5、安装完后 进入其 <code>sbin</code> 中运行 <code>./nginx</code> 即可走你。(后面加 <code>-s stop</code>关闭 / <code>-s reload</code>重启 )</p>
+<p>6、配置可在其 <code>conf/nginx.conf</code> 里设置.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">   ssi on;                          #开启ssi</div><div class="line">   ssi_silent_errors on;            #设置ssi解析出错静默模式</div><div class="line">   root   html;                     #目标位置|代码位置</div><div class="line">   index  index.html index.htm;     #默认打开</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="7、天坑-填坑：此时还没法显示正常，那就是这个问题了…"><a href="#7、天坑-填坑：此时还没法显示正常，那就是这个问题了…" class="headerlink" title="7、天坑=填坑：此时还没法显示正常，那就是这个问题了…"></a>7、天坑=填坑：此时还没法显示正常，那就是这个问题了…</h2><p>前后折腾了好久…<br><code>&lt;!-- #include file=&quot;header.html&quot; --&gt;</code>    //别想了，没法导入<br><code>&lt;!--#include file=&quot;header.html&quot;--&gt;</code>      //好吧，正确导入，显示完美。</p>
+<p>8、删除|卸载？<br>删除目录就行..</p>
+<h2 id="终于可以在自己本上鼓捣了…"><a href="#终于可以在自己本上鼓捣了…" class="headerlink" title="终于可以在自己本上鼓捣了…."></a>终于可以在自己本上鼓捣了….</h2><p>参考：<br><a href="http://nginx.org/en/docs/http/ngx_http_ssi_module.html" target="_blank" rel="external">Module ngx_http_ssi_module</a><br><a href="http://www.cnblogs.com/hubavyn/p/4337903.html" target="_blank" rel="external">Nginx安装</a><br><a href="http://happyqing.iteye.com/blog/1806561" target="_blank" rel="external">linux下nginx安装，启动，停止，卸载，平滑升级，添加模块</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/12/03/NginxSSIInclude/" data-id="cjd9qc64e000n9b9z4968fb89" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSI/">SSI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/include/">include</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/23/近期小结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          近期小结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/14/作用域/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">作用域</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

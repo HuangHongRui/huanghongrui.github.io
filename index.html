@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="锐锐君的个人技术博客,Web,前端">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rui&#39;s Blog">
+<meta property="og:url" content="http://blog.luckyman.xyz/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="锐锐君的个人技术博客,Web,前端">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rui&#39;s Blog">
+<meta name="twitter:description" content="锐锐君的个人技术博客,Web,前端">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-Grid布局" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/05/Grid布局/" class="article-date">
+  <time class="post-time" datetime="2018-02-05T04:21:01.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/Grid布局/">Grid布局</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Css/">Css</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/4007920-b6501d4e083aa5cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Can I Use"></p>
+<p><strong>Grid</strong> 是CSS中最强大的布局系统。它是<strong>2-Dimensional System</strong>，这意味着它可以同时处理列和行.——(PS：Flex布局主要是1-Dimensional System)</p>
+<h2 id="使用基础："><a href="#使用基础：" class="headerlink" title="使用基础："></a>使用基础：</h2><p>1.必须先定义一个容器元素：<code>display: grid</code><br>2.设置列与行：<code>grid-template-columns</code> | <code>grid-template-rows</code><br>3.将它的子元素也融入到Grid中：<code>grid-column</code> | <code>grid-row</code></p>
+<p>与Flex布局类似，Grid的属性顺序无关紧要。您的CSS可以以任意顺序放置它们，这使得使用媒体查询重新排列网格变得非常容易。想象一下，定义整个页面的布局，然后完全重新排列它，以适应不同的屏幕宽度，只需要几行CSS。网格是有史以来最强大的CSS模块之一。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-51611a2850216033.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Can I Use"></p>
+<h2 id="重要术语的理解"><a href="#重要术语的理解" class="headerlink" title="重要术语的理解"></a>重要术语的理解</h2><p>应用 <code>display: grid</code> 的元素，是为所有 grid items 的父元素：如例子中的container.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Example：</div><div class="line">&lt;div class=&quot;container&quot;&gt;  //Gird Container</div><div class="line">  &lt;div class=&quot;item item-1&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item item-2&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item item-3&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>Grid items 是 GridContainer 的<strong>直接</strong>后代！ 而像 sub-items 则不属于 Grid-items<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;item&quot;&gt;&lt;/div&gt; </div><div class="line">  &lt;div class=&quot;item&quot;&gt;</div><div class="line">  	&lt;p class=&quot;sub-item&quot;&gt;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="线-（Grid-Line）"><a href="#线-（Grid-Line）" class="headerlink" title="线 （Grid Line）"></a>线 （Grid Line）</h2><p>构成 Grid Line 的分界线，可以是垂直的（columns grid line）也可以是水平的（rows grid line），并可位于行/列的任一侧..</p>
+<h2 id="轨道-（Grid-Track）"><a href="#轨道-（Grid-Track）" class="headerlink" title="轨道 （Grid Track）"></a>轨道 （Grid Track）</h2><p>两条相邻的 Grid Line 中间的空间（中间的空间就是轨道），可以想象成Grid的 行或列！<br>Example中, 第二第三条Grid Line 中间就是Grid-Track<br><img src="http://upload-images.jianshu.io/upload_images/4007920-a1bebf5438cb4a70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Track"></p>
+<h2 id="单元格-（Grid-Cell）"><a href="#单元格-（Grid-Cell）" class="headerlink" title="单元格 （Grid Cell）"></a>单元格 （Grid Cell）</h2><p>两个相邻的 列和行的 Grid Line..组成一个 Grid Cell..<br>Example中，黄色部分由 1/2行与2/3列 构成的Grid-Cell<br><img src="http://upload-images.jianshu.io/upload_images/4007920-79a862c96e8e21b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Cell"></p>
+<h2 id="区域-（Area）"><a href="#区域-（Area）" class="headerlink" title="区域 （Area）"></a>区域 （Area）</h2><p>Grid Area 可以由任意数量的 Grid Cell 组成。由四条 Grid Line 包围的总空间<br>Example：由行和列的1/3 Grid Line 包围形成<br><img src="http://upload-images.jianshu.io/upload_images/4007920-e4f05e2b2bd22f5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Area"></p>
+<hr>
+<h1 id="Grid-属性目录"><a href="#Grid-属性目录" class="headerlink" title="Grid 属性目录"></a>Grid 属性目录</h1><table>
+<thead>
+<tr>
+<th>Properties for the Grid Container</th>
+<th>Properties for the Grid Items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>display</td>
+<td>grid-column-start</td>
+</tr>
+<tr>
+<td>grid-template-columns</td>
+<td>grid-column-end</td>
+</tr>
+<tr>
+<td>grid-template-rows</td>
+<td>grid-row-start</td>
+</tr>
+<tr>
+<td>grid-template-areas</td>
+<td>grid-row-end</td>
+</tr>
+<tr>
+<td>grid-template</td>
+<td>grid-column</td>
+</tr>
+<tr>
+<td>grid-column-gap</td>
+<td>grid-row</td>
+</tr>
+<tr>
+<td>grid-row-gap</td>
+<td>grid-area</td>
+</tr>
+<tr>
+<td>grid-gap</td>
+<td>justify-self</td>
+</tr>
+<tr>
+<td>justify-items</td>
+<td>align-self</td>
+</tr>
+<tr>
+<td>align-items</td>
+</tr>
+<tr>
+<td>justify-content</td>
+</tr>
+<tr>
+<td>align-content</td>
+</tr>
+<tr>
+<td>grid-auto-columns</td>
+</tr>
+<tr>
+<td>grid-auto-rows</td>
+</tr>
+<tr>
+<td>grid-auto-flow</td>
+</tr>
+<tr>
+<td>grid</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="属性功能"><a href="#属性功能" class="headerlink" title="属性功能"></a>属性功能</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">display</div></pre></td></tr></table></figure>
+<p>可将元素定义为Grid容器，并为其内容建立新的Grid 格式上下文。</p>
+<ul>
+<li><code>Grid</code> 生成块级Grid</li>
+<li><code>inline-grid</code> 生成内联Grid</li>
+<li><code>subgrid</code> 如果 Grid Container 本身就是一个 Grid Items （嵌套的Grid）..那可使用这个值来根据父元素的行&amp;列来调整大小.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  display: grid | inline-grid | subgrid;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="行-amp-列："><a href="#行-amp-列：" class="headerlink" title="行 &amp; 列："></a>行 &amp; 列：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grid-template-columns </div><div class="line">grid-template-rows</div></pre></td></tr></table></figure>
+<p>使用空格分隔的值 列表定义网格的列和行。这些值表示轨道大小，它们之间的空间表示网格线。</p>
+<ul>
+<li><code>&lt;track-size&gt;</code> - 可以是Grid中的空闲空间的长度，百分比或小部分（使用<code>fr</code>单位）</li>
+<li><code>&lt;line-name&gt;</code> - Grid Line 的任意名称</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</div><div class="line">  grid-template-rows: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Example</div><div class="line">// 在轨迹值之间留出空白区域时，网格线会自动分配数字名称：</div><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 40px 50px auto 50px 40px;</div><div class="line">  grid-template-rows: 25% 100px auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-f6533210e4965540.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自动分配LineName"></p>
+<p>当然也可以命名GridLine..（需要注意的是：名称 需要带括号）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];</div><div class="line">  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-d2ea0a49a6190261.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="命名Grid-Line"><br>一行中可以多个名称，如第二行有 row1-end 和 row2-start：它既是Grid Track 1 的结尾Grid Line 又是 Grid Track 2 的开头Grid Line<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果定义包含重复的部分…可以使用<code>repeat()</code>来简化..<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">grid-template-columns: repeat(3, 20px [col-start]) 5%;</div><div class="line">//等于：</div><div class="line">grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start] 5%;</div></pre></td></tr></table></figure></p>
+<p><code>fr</code>单位允许设置的Track的大小为Grid Container的空间的一小部分。例如，这会将每个项目设置为网格容器宽度的三分之一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 1fr 1fr 1fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果像下面这种情况…分为4列..拥有fr单位的3列将平分总长度（减去50px）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 1fr 50px 1fr 1fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="区域："><a href="#区域：" class="headerlink" title="区域："></a>区域：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grid-template-ares</div></pre></td></tr></table></figure>
+<p>通过引用由 grid-area 属性 指定的GridArea 的名称 来定义 Grid 模板.<br>重复GridArea 的名称 会让内容跨越这些 Grid Cell ..使用<code>.</code> 则代表一个空的Grid Cell</p>
+<ul>
+<li><strong><grid-area-name></grid-area-name></strong> - 指定的Grid Area的名称 -&gt; <code>grid-area</code></li>
+<li><code>.</code> 表示一个空的 Grid Cell</li>
+<li><code>none</code> 没有定义Grid Area<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;&lt;grid-area-name&gt; | . | none | ...&quot;</div><div class="line">    &quot;...&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//Example:</div><div class="line">.item-a &#123;</div><div class="line">  grid-area: header;  //定义Grid Area 名称</div><div class="line">&#125;</div><div class="line">.item-b &#123;</div><div class="line">  grid-area: main;</div><div class="line">&#125;</div><div class="line">.item-c &#123;</div><div class="line">  grid-area: sidebar;</div><div class="line">&#125;</div><div class="line">.item-d &#123;</div><div class="line">  grid-area: footer;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 50px 50px 50px 50px;</div><div class="line">  grid-template-rows: auto;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;header header header header&quot;</div><div class="line">    &quot;main main . sidebar&quot;</div><div class="line">    &quot;footer footer footer footer&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建：<br>列 ：4列<br>行 ：自动<br>区域 第一行四个Grid Cell 均为 Header GridArea<br>区域 第二行两个Grid Cell 为 Main. 一个Cell为空<code>.</code>. 最后一个Cell为 Sidebar.<br>区域 第三行四个Grid Cell 均为 Footer<br><img src="http://upload-images.jianshu.io/upload_images/4007920-5f27a9e10852a37c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid Area"><br>每一行都需要相同数量的GridCell</p>
+<hr>
+<h3 id="Grid-Template"><a href="#Grid-Template" class="headerlink" title="Grid-Template"></a>Grid-Template</h3><p>这是一个 省略写法.<br>可以把 <code>grid-template-rows</code>/<code>grid-template-columns</code>和<code>grid-template-areas</code>.写在同一个声明中。</p>
+<ul>
+<li><code>none</code> - 将所有三个属性设置为其初始值</li>
+<li><code>subgrid</code> - 设置 <code>grid-template-rows</code> 和 <code>grid-template-columns</code> 到 子Grid中去，和将 <code>grid-template-areas</code> 作为它的初始值.</li>
+<li><code>&lt;grid-template-rows&gt;</code>/<code>&lt;grid-template-columns&gt;</code> 分别设置 <code>grid-template-columns</code>和<code>grid-template-rows</code> 指定的值，并设置 <code>grid-template-areas</code>为none。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template: none | subgrid | &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>它接受一个更复杂但相当方便的语法来指定这三个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">.container &#123;</div><div class="line">  grid-template:</div><div class="line">    [row1-start] &quot;header header header&quot; 25px [row1-end]</div><div class="line">    [row2-start] &quot;footer footer footer&quot; 25px [row2-end]</div><div class="line">    / auto 50px auto;</div><div class="line">&#125;</div><div class="line">//  相当：</div><div class="line">.container &#123;</div><div class="line">  grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];</div><div class="line">  grid-template-columns: auto 50px auto;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;header header header&quot; </div><div class="line">    &quot;footer footer footer&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于<code>grid-template</code>不会重置<em>隐式</em>Grid属性（<code>grid-auto-columns</code>, <code>grid-auto-rows</code>, 和 <code>grid-auto-flow</code>）,所以建议尽量使用 grid 属性…</p>
+<hr>
+<h3 id="Grid-cloumns-gap-Grid-row-gap"><a href="#Grid-cloumns-gap-Grid-row-gap" class="headerlink" title="Grid-cloumns-gap | Grid-row-gap"></a>Grid-cloumns-gap | Grid-row-gap</h3><p>指定 Grid-Line 的宽度…<br>可以想想成 列 &amp; 行 之间的宽度..<br>只能在 行/列 之间（如 row 1 start 或 colum 1 start 就没法设置-。-因为在边缘）</p>
+<ul>
+<li><line-size> - Length Value.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-column-gap: &lt;line-size&gt;;</div><div class="line">  grid-row-gap: &lt;line-size&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</line-size></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 100px 50px 100px;</div><div class="line">  grid-template-rows: 80px auto 80px; </div><div class="line">  grid-column-gap: 10px;</div><div class="line">  grid-row-gap: 15px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="Grid-Gap"><a href="#Grid-Gap" class="headerlink" title="Grid-Gap"></a>Grid-Gap</h3><p>又一种简写速记：<code>grid-colunm-gap</code>||<code>grid-row-gap</code></p>
+<ul>
+<li><grid-row-gap> <grid-colunm-gap> - Length Value<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</grid-colunm-gap></grid-row-gap></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 100px 50px 100px;</div><div class="line">  grid-template-rows: 80px auto 80px; </div><div class="line">  grid-gap: 10px 15px;</div><div class="line">&#125;</div><div class="line">//  如果无设置 grid-row-gap..它的值会设置为grid-column-gap</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="Justify-Items"><a href="#Justify-Items" class="headerlink" title="Justify-Items"></a>Justify-Items</h3><p>沿着 <em>行</em>轴 对齐Grid内的内容。该值适用于Container内的所有Grid Items。</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的左端</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的右端</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个宽度（这是默认值）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  justify-items: start | end | center | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Align-Items"><a href="#Align-Items" class="headerlink" title="Align-Items"></a>Align-Items</h3><p>沿 <em>列</em>轴 对齐Grid内的内容。该值适用于Container内的所有Grid Items。</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的顶部</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的底部</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个高度（这是默认值）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  align-items: start | end | center | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Justify-Content"><a href="#Justify-Content" class="headerlink" title="Justify-Content"></a>Justify-Content</h3><p>有时，Grid 的总大小可能小于其Grid Container的大小。如果所有Grid-Items都使用非灵活单位(<code>fr</code>)进行调整，就可能发生这种情况<code>px</code>。在这种情况下，可以设置Grid Container 内的Grid的对齐方式。此属性沿着<em>行</em>轴对齐Grid.</p>
+<ul>
+<li><strong>start</strong> - 将Grid对齐到Grid Container的左端</li>
+<li><strong>end</strong> - 将Grid对齐到Grid Container的右端</li>
+<li><strong>center</strong> - 将Grid对齐到Grid Container的中心</li>
+<li><strong>stretch</strong> - 调整Grid Items的大小以允许Grid填充Grid Container的整个宽度</li>
+<li><strong>space-around</strong> - 在每个Grid物体之间放置一定量的空间。</li>
+<li><strong>space-between</strong> - 在每个Grid物品<strong>之间</strong>放置一个均匀的空间。</li>
+<li><strong>space-evenly</strong> - 在每个Grid Items之间放置一个均匀的空间.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  justify-content: start | end | center | stretch | space-around | space-between | space-evenly;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>跟 <code>justify-content</code> 差不多..<br>唯一不同的是 <code>align-content</code> 是设置水平方向</p>
+<ul>
+<li><strong>start</strong> - 将Grid对齐到Container的顶部</li>
+<li><strong>end</strong> - 将Grid对齐到Container的底部</li>
+<li><strong>center</strong> - 将Grid对齐到Container的中心</li>
+<li><strong>stretch</strong> - 调整Grid Items的大小，以允许网格填充Container的整个高度</li>
+<li><strong>space-around</strong> - 在每个Grid物体之间放置一定量的空间。</li>
+<li><strong>space-between</strong> - 在每个Grid物品<strong>之间</strong>放置一个均匀的空间</li>
+<li><strong>space-evenly</strong> - 在每个Grid-Items之间放置一个均匀的空间。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  align-content: start | end | center | stretch | space-around | space-between | space-evenly;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h4 id="Grid-auto-columns-amp-Grid-auto-rows"><a href="#Grid-auto-columns-amp-Grid-auto-rows" class="headerlink" title="Grid-auto-columns &amp; Grid-auto-rows"></a>Grid-auto-columns &amp; Grid-auto-rows</h4><p>指定任何自动生成的Grid Track（又名<em>Implicit<br> Grid Track</em>）的大小。当明确定位超出定义的Grid范围的行或列（通过<code>grid-template-rows</code>/ <code>grid-template-columns</code>）时，会创建Implicit Grid Track。</p>
+<ul>
+<li><strong><track-size></track-size></strong> - 可以是Grid中的空闲空间的长度，百分比或是小部分（使用<code>fr</code>单位）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-auto-columns: &lt;track-size&gt; ...;</div><div class="line">  grid-auto-rows: &lt;track-size&gt; ...;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Example ：理解 Implicit Grid Track ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 60px 60px;</div><div class="line">  grid-template-rows: 90px 90px</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-7d0f1f633e9f9164.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建2 × 2的Grid"></p>
+<p>现在设想使用 <code>grid-column</code> 和 <code>grid-row</code> 定位这个Grid Items 是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 元素的属性知识.后面有讲，下面数字指 Grid Line 默认名</div><div class="line">.item-a &#123;</div><div class="line">  grid-column: 1 / 2;</div><div class="line">  grid-row: 2 / 3;</div><div class="line">&#125;</div><div class="line">.item-b &#123;</div><div class="line">  grid-column: 5 / 6;</div><div class="line">  grid-row: 2 / 3;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-bdd588697d57275e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Items"></p>
+<p>我们设置 .item -b 从列5行开始，到列6行结束，<em>但是我们没有定义列5或6</em>。<br>因为引用了不存在的行！所以创建了宽度为0的隐式轨道来填补空白。可以使用<code>grid-auto-columns</code>和<code>grid-auto-rows</code>指定这些隐式轨道的宽度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-auto-columns: 60px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-680943810e7338cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Result"></p>
+<hr>
+<h4 id="Grid-auto-flow"><a href="#Grid-auto-flow" class="headerlink" title="Grid-auto-flow"></a>Grid-auto-flow</h4><p>如果没有明确放置在Grid上的Grid Items，则自动放置算法会自动放置这些Items。该属性控制自动布局算法的。<br>可以理解是一种设置排序方向的属性（默认row<br> 从左到右，或从上到下的排序[流动方向].)</p>
+<ul>
+<li><strong>row</strong> - 告诉自动布局算法依次填充每行，根据需要添加新行</li>
+<li><strong>column</strong> - 告诉自动布局算法依次填充每列，根据需要添加新列</li>
+<li><strong>dense</strong> - 告诉自动布局算法，如果稍后出现较小的items，则尝试在Grid中的填充空位。(dense 可能导致项目出现乱序)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-auto-flow: row | column | row dense | column dense</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">&lt;section class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;item-a&quot;&gt;item-a&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-b&quot;&gt;item-b&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-c&quot;&gt;item-c&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-d&quot;&gt;item-d&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-e&quot;&gt;item-e&lt;/div&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure>
+<p>定义一个五行两行的Grid，并设置grid-auto-flow为row（默认值）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  display: grid;</div><div class="line">  grid-template-columns: 60px 60px 60px 60px 60px;</div><div class="line">  grid-template-rows: 30px 30px;</div><div class="line">  grid-auto-flow: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.item-a &#123;</div><div class="line">  grid-column: 1;</div><div class="line">  grid-row: 1 / 3;</div><div class="line">&#125;</div><div class="line">.item-e &#123;</div><div class="line">  grid-column: 5;</div><div class="line">  grid-row: 1 / 3;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为设置了 grid-auto-flow 为 row…Grid会呈现这个样子：<br><img src="http://upload-images.jianshu.io/upload_images/4007920-f0871f11b7cebed6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Row"><br>如果是设置 grid-auto-flow 为column 那么则会呈现如下：<br><img src="http://upload-images.jianshu.io/upload_images/4007920-e7ac458c102e41f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Column"></p>
+<hr>
+<h3 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h3><p>简写模式：<br>可以设置的属性有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">grid-template-rows</div><div class="line">grid-template-columns</div><div class="line">grid-template-areas</div><div class="line">grid-auto-rows</div><div class="line">grid-auto-columns</div><div class="line">grid-auto-flow</div><div class="line">grid-column-gap</div><div class="line">grid-row-gap</div></pre></td></tr></table></figure></p>
+<p>可设置值：</p>
+<ul>
+<li><strong>none</strong> - 将所有子属性设置为初始值</li>
+<li><strong><grid-template-rows>/<grid-template-columns></grid-template-columns></grid-template-rows></strong> - 分别设置指定值，并将所有其他属性设置为其初始值</li>
+<li><strong><grid-auto-flow>[<grid-auto-rows>[/<grid-auto-columns>]]</grid-auto-columns></grid-auto-rows></grid-auto-flow></strong> - 接收所有相同的值 <code>grid-auto-flow</code>, <code>grid-auto-rows</code> 和<code>grid-auto-columns</code>.. 如果省略<code>grid-auto-columns</code> ，那么将其设置为<code>grid-auto-rows</code>指定的值. 如果两者都省略，那他们被设置为它们的初始值.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">    grid: none | &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt; | &lt;grid-auto-flow&gt; [&lt;grid-auto-rows&gt; [/ &lt;grid-auto-columns&gt;]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Example:</div><div class="line">.container &#123;</div><div class="line">  grid: 200px auto / 1fr auto 1fr;</div><div class="line">&#125;</div><div class="line">//  等于：</div><div class="line">.container &#123;</div><div class="line">  grid-template-rows: 200px auto;</div><div class="line">  grid-template-columns: 1fr auto 1fr;</div><div class="line">  grid-template-areas: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">.container &#123;</div><div class="line">  grid: column 1fr / auto;</div><div class="line">&#125;</div><div class="line">//  等于</div><div class="line">.container &#123;</div><div class="line">  grid-auto-flow: column;</div><div class="line">  grid-auto-rows: 1fr;</div><div class="line">  grid-auto-columns: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Grid 也接收一个更复杂 但相当方便的语法来一次性设置所有内容。<br>指定<code>grid-template-areas</code>,<code>grid-template-rows</code>和<code>grid-template-columns</code> 所有其他子属性都设置为其初始值…指定Line名称和Track 大小 与 它们各自的Grid Areas …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Example:</div><div class="line">.container &#123;</div><div class="line">  grid: [row1-start] &quot;header header header&quot; 1fr [row1-end]</div><div class="line">        [row2-start] &quot;footer footer footer&quot; 25px [row2-end]</div><div class="line">        / auto 50px auto;</div><div class="line">&#125;</div><div class="line">//  等于：</div><div class="line">.container &#123;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;header header header&quot;</div><div class="line">    &quot;footer footer footer&quot;;</div><div class="line">  grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];</div><div class="line">  grid-template-columns: auto 50px auto;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="父级属性（Grid-Container）-End"><a href="#父级属性（Grid-Container）-End" class="headerlink" title="父级属性（Grid Container） End"></a>父级属性（Grid Container） End</h1><hr>
+<h1 id="子元素属性-（Grid-Items）"><a href="#子元素属性-（Grid-Items）" class="headerlink" title="子元素属性 （Grid Items）"></a>子元素属性 （Grid Items）</h1><h4 id="grid-column-start-grid-column-end-grid-row-start-grid-row-end"><a href="#grid-column-start-grid-column-end-grid-row-start-grid-row-end" class="headerlink" title="grid-column-start | grid-column-end | grid-row-start | grid-row-end"></a>grid-column-start | grid-column-end | grid-row-start | grid-row-end</h4><p>通过引用特定的Grid-Line来确定Grid内Grid的位置。<code>grid-column-start</code>/ <code>grid-row-start</code>是Items开始的行/列，<code>grid-column-end</code>/ <code>grid-row-end</code>是Items结束的行/列。</p>
+<ul>
+<li><strong><number></number></strong> - 可以是一个数字来引用一个编号的Grid Line，或者一个名称来引用一个命名的Grid Line</li>
+<li><strong>span <number></number></strong> - Items 将跨越提供的Grid<br>Track 数量</li>
+<li><strong>span <name></name></strong> - Items 将跨越，直到它与提供的名称符合</li>
+<li><strong>auto</strong> - 指示自动放置，自动跨度或默认跨度</li>
+</ul>
+<p>Ps: Items可以相互重叠。可以使用 <code>z-index</code> 来控制其堆叠顺序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">.item-a &#123;</div><div class="line">  grid-column-start: 2;</div><div class="line">  grid-column-end: five;</div><div class="line">  grid-row-start: row1-start</div><div class="line">  grid-row-end: 3</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-da7aaf0085b93ef9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Example"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.item-b &#123;</div><div class="line">  grid-column-start: 1;</div><div class="line">  grid-column-end: span col4-start;</div><div class="line">  grid-row-start: 2</div><div class="line">  grid-row-end: span 2 // 跨越2个 Grid Track</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-6a63a4b072c175cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Example"></p>
+<hr>
+<h3 id="grid-column-grid-row"><a href="#grid-column-grid-row" class="headerlink" title="grid-column | grid-row"></a>grid-column | grid-row</h3><p>简写速记分别为<code>grid-column-start</code>+ <code>grid-column-end</code>和<code>grid-row-start</code>+ <code>grid-row-end</code></p>
+<ul>
+<li><strong><start-line> / <end-line></end-line></start-line></strong> - 每一个都接受相同的值，包括span<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  grid-column: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;</div><div class="line">  grid-row: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.item-c &#123;</div><div class="line">  grid-column: 3 / span 2;</div><div class="line">  grid-row: third-line / 4;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-44fc3b2c6b757568.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="如果没有声明结束行值，则该项目默认跨越1个轨道。"></p>
+<hr>
+<h3 id="Grid-Areas"><a href="#Grid-Areas" class="headerlink" title="Grid Areas"></a>Grid Areas</h3><p>为Items提供一个名称，以便可以通过使用该<code>grid-template-areas</code>属性创建的模板来引用它。<br>或者，此属性可以用作<code>grid-row-start</code>+ <code>grid-column-start</code>+ <code>grid-row-end</code>+ <code>grid-column-end</code>的更简短的缩写。</p>
+<ul>
+<li><strong><name></name></strong> - 选择的名称</li>
+<li><strong><row-start> / <column-start> / <row-end> / <column-end></column-end></row-end></column-start></row-start></strong>- 可以是数字或命名行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  grid-area: &lt;name&gt; | &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 方法一：可为 Items 分配名称</div><div class="line">.item-d &#123;</div><div class="line">  grid-area: header</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//  方法二： 可作为 row start + column start + row end + column end 的一次性简写</div><div class="line">.item-d &#123;</div><div class="line">  grid-area: 1 / col4-start / last-line / 6</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-98e2947524e5a516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="grid area 简写"></p>
+<hr>
+<h3 id="Justify-self"><a href="#Justify-self" class="headerlink" title="Justify-self"></a>Justify-self</h3><p>沿着<em>行</em>轴对齐Grid内的内容。此值适用于单个Grid Items 内的内容。</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的左端</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的右端</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个宽度（Default）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  justify-self: start | end | center | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Example:</div><div class="line">.item-a &#123;</div><div class="line">  justify-self: start;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-e4b0270a1c49dc03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<hr>
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><p>沿<em>列</em>轴对齐网格内的内容。此值适用于单个Grid Item内的内容。</p>
+<p>价值观：</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的顶部</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的底部</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个高度（Default）</li>
+</ul>
+<hr>
+<h1 id="子元素属性-结束——End"><a href="#子元素属性-结束——End" class="headerlink" title="子元素属性 结束——End"></a>子元素属性 结束——End</h1><hr>
+<p>移植地点：<a href="http://chris.house/blog/a-complete-guide-css-grid-layout/" target="_blank" rel="external">Links</a><br>移植地点：<a href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows" target="_blank" rel="external">Links2</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2018/02/05/Grid布局/" data-id="cjd9qc641000b9b9z09brqbfx" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grid/">Grid</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-函数" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/函数/" class="article-date">
+  <time class="post-time" datetime="2018-01-03T13:40:00.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/函数/">函数</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>,<a class="article-category-link" href="/categories/Web前端知识/摘要/">摘要</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对象： 键值对的集合.</p>
+<p>有一个连到原型对象的隐藏连接.</p>
+<p>对象字面量 产生的对象 连接到 <code>Object.proptotype</code>.</p>
+<p>JavaScript中，函数是对象.</p>
+<p>函数(对象)连接到 <code>Function.proptotype</code>.-[原型]</p>
+<p>其原型对象又连接到 <code>Object,proptotype</code>.</p>
+<p>函数创建时，会带有两个属性(隐藏).<br>    1.函数的上下文<br>    2.实现函数行为的代码</p>
+<p>函数(对象)创建时，配有一个<code>prototype</code>属性.<br>该属性的值拥有一属性：<code>constructor</code>.<br>对应值即为该函数(对象)的对象</p>
+<p>函数是对象！<br>所以可以像任何其他的值一样被使用.</p>
+<p>函数可保存在 变量 | 对象 | 数组 中.</p>
+<p>函数可被当作 参数 传递给其他函数.</p>
+<p>函数可再返回函数.</p>
+<p>函数可拥有方法.(因为是对象)</p>
+<p>函数的特点(与众不同之处)： <strong>可被调用</strong></p>
+<hr>
+<p>函数字面量 包括 4 部分：<br>    1：保留字 <code>function</code><br>    2：函数名 可省略(匿名函数).函数可用函数名来递归调用自己.<br>    3：圆括号中的参数 以逗号分隔参数，参数名将定义为函数中的变量.<br>    初始值不为<code>undefined</code>，函数被调用呢时初始化为实际提供的参数值.<br>    4：花括号中的语句 函数的主体，函数调用时执行.</p>
+<p>函数字面量 可出现在 <strong>任何</strong> 允许表达式出现的地方.</p>
+<p>函数可被定义于其他函数中.</p>
+<p>一个内部函数除了可访问己身 参数|变量，也可访问其父函数的 参数|变量.</p>
+<p><strong>[闭包]：通过函数字面量创建的函数对象包含一个连接到外部上下文的连接</strong></p>
+<hr>
+<p>调用一个函数 会导致 当前函数的执行.传递 控制权|参数 给新函数.</p>
+<p>函数接收两个附加参数：<br>    1.<strong><code>this</code> (非常重要_取决于4种调用模式)<br>    2.</strong><code>arguments</code>**</p>
+<p>调用运算符：跟在任何可产生函数值的表达式后面的一对圆括号<code>()</code>.</p>
+<p>可包含0到多个逗号隔开的表达式(每一表达式产生一参数值).</p>
+<p>实参与形参 个数不匹配，不会运行错误.</p>
+<p>实参数量超出，被忽略;<br>实参数量缺少，被赋予<code>undefined</code></p>
+<p>参数无类型检查，传啥都行.</p>
+<hr>
+<p><strong>方法</strong>：函数被保存为对象的属性时.</p>
+<p>方法被调用时，<code>this</code> 绑定到该对象.</p>
+<p>调用表达式包含提取属性的动作([下标表达式]/.表达式)时，函数被当方法调用.</p>
+<p>使用<code>this</code>可访问所属对象的值和对对象进行修改.</p>
+<p><code>this</code>到对象的绑定发生在在调用时.(Very Late Binding),使函数可高度复用<code>this</code>.</p>
+<p>通过<code>this</code>可去得所属对象的上下文的公共方法.</p>
+<hr>
+<p>当函数不是对象属性时，会被当成普通函数调用.</p>
+<p>其<code>this</code>将绑定到全局对象.</p>
+<p>可在函数内部把 <code>this</code> 事先保存下来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">people.a = function() &#123;</div><div class="line">    let that = this,          //吉利吉利</div><div class="line">        value = 123,</div><div class="line">        b = function() &#123;</div><div class="line">        that.value = &quot;haha&quot;</div><div class="line">    &#125;</div><div class="line">    b()</div><div class="line">&#125;</div><div class="line">people.a()</div><div class="line">people.value</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2018/01/03/函数/" data-id="cjd9qc64m00149b9zkqcz98s1" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数/">函数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/摘要/">摘要</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-命令行FQ" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/02/命令行FQ/" class="article-date">
+  <time class="post-time" datetime="2018-01-02T02:16:56.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/02/命令行FQ/">命令行FQ</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/使用操作/">使用操作</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期，使用终端 <code>git clone</code> 拉取包，每秒达到4KB高速…干等可是要等到明年才有可能clone下来..</p>
+<p>一直开机启动飞机FQ…为什么还这么慢…</p>
+<p>想起一个大佬前天刚提到命令行FQ..（命令行还要另外再翻？）</p>
+<p>好吧，鼓捣命令行FQ前搜了下Google看有没其他办法…<br>有以下方法: (好像都没卵用)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080</div><div class="line">$ git config --global https.proxy https://proxyuser:proxypwd@proxy.server.com:8080</div></pre></td></tr></table></figure>
+<p>无非都是这种更改 git 配置…的操作</p>
+<p>没有奏效..还是保持4KB..继续折腾，选择命令行FQ：</p>
+<h2 id="步骤1：下载"><a href="#步骤1：下载" class="headerlink" title="步骤1：下载"></a>步骤1：下载</h2><p><a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">Git_proxychains-ng</a><br><a href="https://sourceforge.net/projects/proxychains-ng/files/" target="_blank" rel="external">proxychains-ng</a></p>
+<h2 id="步骤2：编译"><a href="#步骤2：编译" class="headerlink" title="步骤2：编译"></a>步骤2：编译</h2><p>解压包，进入文件夹<br>输入 <code>make</code> ；<br>输入 <code>./configure --prefix=/usr --sysconfdir=/etc</code><br>提示：<code>Done, now run make &amp;&amp; make install</code><br>输入：<code>make &amp;&amp; make install</code>(可能会报错.我报了，所以继续下面操作)<br>输入：<code>sudo make install</code><br>输入：<code>sudo make install-config</code><br>输入：<code>make &amp;&amp; make install</code>(没报错了…Done)</p>
+<h2 id="步骤3：配置"><a href="#步骤3：配置" class="headerlink" title="步骤3：配置"></a>步骤3：配置</h2><p>下载配置文件：<code>curl -L https://raw.githubusercontent.com/FrankFang/dot-files/master/proxychains.conf &gt; ~/.proxychains.conf</code><br>配置 bash alias 快捷<br>运行：<code>touch ~/.bashrc; echo &#39;alias pc=&quot;proxychains4 -f ~/.proxychains.conf&quot;&#39; &gt;&gt; ~/.bashrc</code><br>运行：<code>source ~/.bashrc</code><br>好了…</p>
+<h3 id="尝试："><a href="#尝试：" class="headerlink" title="尝试："></a>尝试：</h3><p><code>pc git clone</code> 拉取想要的包吧..<br><code>pc brew install</code> 安装…<br>前面带自己设置的快捷命令即可～</p>
+<h3 id="预防："><a href="#预防：" class="headerlink" title="预防："></a>预防：</h3><p>有的大佬可能会遇到一种情况，<br>就是每次打开一个终端（Mac:Terminal）.<br>都需要 source ~/.bashrc.. 很是麻烦.<br>所以让为了让其自动执行该命令..把命令放到 .bash_profile 里去..如下～<br><code>touch ~/.bash_profile; echo &#39;source ~/.bashrc&#39;&gt;&gt; ~/.bash_profile</code></p>
+<p>Done..</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2018/01/02/命令行FQ/" data-id="cjd9qc64y001q9b9zu1zcu3vm" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FQ/">FQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-近期小结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/23/近期小结/" class="article-date">
+  <time class="post-time" datetime="2017-12-23T13:40:16.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/23/近期小结/">近期小结</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日常工作/">日常工作</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>项目上线了…持续将近1个月的加班节奏终于缓解下来了..(终于有时间可WebLog了)</p>
+<p>感谢有此次经历，让我的见识和经验得到提升.</p>
+<p>对开发工作的过程更进一步的熟悉..</p>
+<p>这使我接下来的每一个项目的开发效率会是很大的提高..</p>
+<hr>
+<p>该项目使用的技术有点落后和单调…不过没关系..</p>
+<p>刚开始，可能这样更容易上手，不然如因为技术栈太多需要学要上手还要赶项目，影响项目上线时间就不好了。（只能这么想了-。-）</p>
+<p>这期间回家再晚，都还坚持每天睡前都看下书（Code Complete）记记笔记，上下班地铁时间看看书(设计模式与开发实践)…尽量利用咸鱼时间~</p>
+<p>提升基础知识的同时也要提升实战知识…还要了解最新技术.. 感觉时间都不够用了..（要踏实踏实，心急吃不了）</p>
+<hr>
+<p>目前所在公司是用Vue的. 由于对React有莫名的喜爱..</p>
+<p>强心决定把公司的项目自己用React实现一下，同时加入TypeScript等最新技术..（要花很多时间摸索学习..这回终于体会到时间是挤出来的.）</p>
+<p>这过程还要合理安排时间-。-挺刺激的..</p>
+<p>Done</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/12/23/近期小结/" data-id="cjd9qc65g002e9b9zjf85rzfx" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work/">work</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-NginxSSIInclude" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/03/NginxSSIInclude/" class="article-date">
+  <time class="post-time" datetime="2017-12-03T15:19:15.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/03/NginxSSIInclude/">Nginx初试</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/服务端/">服务端</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司所用的是 WINDOW 系统.服务端使用SSI(Server Side Include)——Win系统专属.</p>
+<p>公司开发，为了不重复代码，将代码块使用<code>&lt;#include&gt;</code>插入到shtml中.(类似插脚本)。<br>使用在SSI可以读取到插入的 &lt;#include&gt;(作用)</p>
+<p>自己的笔记本是Linux系统，不想刷回Win，所以想要正常操作，肯定要鼓捣的-。-（事实上也没时间）</p>
+<h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><p>Nginx（发音同engine x）是一个 Web服务器，也可以用作反向代理，负载平衡器和 HTTP缓存。<br>经过了解 Nginx 可以代替 SSi..以下是操作过程： [记得用sudo权限]</p>
+<p>下载可使用该命令：<code>wget 包链接</code></p>
+<p>1、下载最新安装包.<a href="https://nginx.org/en/download.html" target="_blank" rel="external">nginx地址</a></p>
+<p>2、放在 <code>/opt/nginx/</code> 中，解压并进入。</p>
+<p>3、考虑到需要让Nginx的SSI也支持相对路径，所以进入后，找到其该文件<code>src/http/modules/ngx_http_ssi_filter_module.c</code>.修改其内代码块：注释了!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">if (ngx_http_parse_unsafe_uri(r, uri, &amp;args, &amp;flags) != NGX_OK) &#123;</div><div class="line">        return NGX_HTTP_SSI_ERROR;</div><div class="line">    &#125;</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>3、使用命令： <code>./configure --prefix=/opt/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module</code> 编译.<br><code>--prefix</code>可指定安装目录，不填则默认安装目录为<code>/usr/local/nginx</code></p>
+<p>4、使用命令： <code>make &amp;&amp; make install</code></p>
+<p>5、安装完后 进入其 <code>sbin</code> 中运行 <code>./nginx</code> 即可走你。(后面加 <code>-s stop</code>关闭 / <code>-s reload</code>重启 )</p>
+<p>6、配置可在其 <code>conf/nginx.conf</code> 里设置.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">   ssi on;                          #开启ssi</div><div class="line">   ssi_silent_errors on;            #设置ssi解析出错静默模式</div><div class="line">   root   html;                     #目标位置|代码位置</div><div class="line">   index  index.html index.htm;     #默认打开</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="7、天坑-填坑：此时还没法显示正常，那就是这个问题了…"><a href="#7、天坑-填坑：此时还没法显示正常，那就是这个问题了…" class="headerlink" title="7、天坑=填坑：此时还没法显示正常，那就是这个问题了…"></a>7、天坑=填坑：此时还没法显示正常，那就是这个问题了…</h2><p>前后折腾了好久…<br><code>&lt;!-- #include file=&quot;header.html&quot; --&gt;</code>    //别想了，没法导入<br><code>&lt;!--#include file=&quot;header.html&quot;--&gt;</code>      //好吧，正确导入，显示完美。</p>
+<p>8、删除|卸载？<br>删除目录就行..</p>
+<h2 id="终于可以在自己本上鼓捣了…"><a href="#终于可以在自己本上鼓捣了…" class="headerlink" title="终于可以在自己本上鼓捣了…."></a>终于可以在自己本上鼓捣了….</h2><p>参考：<br><a href="http://nginx.org/en/docs/http/ngx_http_ssi_module.html" target="_blank" rel="external">Module ngx_http_ssi_module</a><br><a href="http://www.cnblogs.com/hubavyn/p/4337903.html" target="_blank" rel="external">Nginx安装</a><br><a href="http://happyqing.iteye.com/blog/1806561" target="_blank" rel="external">linux下nginx安装，启动，停止，卸载，平滑升级，添加模块</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/12/03/NginxSSIInclude/" data-id="cjd9qc64e000n9b9z4968fb89" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSI/">SSI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/include/">include</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-作用域" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/14/作用域/" class="article-date">
+  <time class="post-time" datetime="2017-11-14T05:46:45.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/14/作用域/">作用域</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 采用的是 词法作用域，函数的作用域是在函数定义时决定的。</p>
+<p><strong>词法作用域 也称为 “静态作用域”。</strong></p>
+<p>JavaScript 因为基于词法作用域，所以<strong>函数的作用域基于函数创建的位置</strong>。</p>
+<p>作用域：</p>
+<ul>
+<li>源代码中定义变量的区域。</li>
+<li>规定如何查找变量。</li>
+<li>确定当前执行代码对变量的访问权限。</li>
+</ul>
+<p>查找顺序：<br>执行函数，先从函数内部查找是否有需要的局部变量，如果没有，那么根据定义位置，往上面一层的代码继续查找，最后一层为 <code>global/window</code>。</p>
+<hr>
+<p>每个函数都有一个 <code>[[scope]]</code> 属性，在创建时，就会保存所有父变量对象。（<code>[[scope]]</code> 是所有父变量对象的层级链）</p>
+<h3 id="函数创建："><a href="#函数创建：" class="headerlink" title="函数创建："></a>函数创建：</h3><p>栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">    function b()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>fun创建时，各自 scope 为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a.[[scope]] = [</div><div class="line">    globalContext.VO</div><div class="line">]</div><div class="line">b.[[scope]] = [</div><div class="line">    aContext.AO,</div><div class="line">    globalContext.VO</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="函数激活"><a href="#函数激活" class="headerlink" title="函数激活"></a>函数激活</h3><p>函数激活时，进入执行上下文，创建VO/AO后，会将AO添加到作用域前端;<br>假设作用域名：Scope<br><code>Scope = [AO].concat[[scope]]</code><br>作用域链创建完毕。</p>
+<h3 id="栗子走一波："><a href="#栗子走一波：" class="headerlink" title="栗子走一波："></a>栗子走一波：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 源代码</div><div class="line">var scope1 = &quot;A&quot;;</div><div class="line">function fn()&#123;</div><div class="line">    var scope2 = &apos;B&apos;;</div><div class="line">    return scope2;</div><div class="line">&#125;</div><div class="line">fn();</div></pre></td></tr></table></figure>
+<p>过程1️⃣： fn 函数被创建，保存作用域链到 内部属性[[scope]]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fn.[[scope]] = [</div><div class="line">    globalContext.VO</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>过程2️⃣： 执行 fn，将fn的执行上下文压入 执行上下文栈<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ECStack = [</div><div class="line">    fnContext,</div><div class="line">    globalContext</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>过程3️⃣：开始【准备工作】，函数还无立即执行，准备工作，复制函数的[[scope]]创建作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fnContext = &#123;</div><div class="line">    Scope = fn.[[scope]]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>过程4️⃣：【准备工作】,用 arguments 创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AO = &#123;</div><div class="line">    argument : &#123;</div><div class="line">        length : 0</div><div class="line">    &#125;,</div><div class="line">    scope2 : undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>过程5️⃣：【准备工作】,将活动对象压入 fnContext 作用域链顶端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fnContext = &#123;</div><div class="line">    AO : &#123;</div><div class="line">        argument : &#123;</div><div class="line">            length : 0</div><div class="line">        &#125;,</div><div class="line">        scope2 : undefined</div><div class="line">    &#125;,</div><div class="line">    Scope : [AO,[[scope]]]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>过程6️⃣：结束【准备工作】,执行函数，随着执行修改 AO 属性值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fnContext = &#123;</div><div class="line">    AO = &#123;</div><div class="line">        argument = &#123;</div><div class="line">            length : 0</div><div class="line">        &#125;,</div><div class="line">        scope2 : &apos;B&apos;</div><div class="line">    &#125;,</div><div class="line">    Scope : [AO,[[scope]]]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>过程7️⃣：查找到 scope2 的值，返回后函数执行完毕，函数上下文从执行上下文栈中弹出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ECStack = [</div><div class="line">    globalContext</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="文章原址："><a href="#文章原址：" class="headerlink" title="文章原址："></a>文章原址：</h3><p><a href="https://github.com/mqyqingfeng/Blog/issues/6" target="_blank" rel="external">JavaScript深入之作用域链</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/11/14/作用域/" data-id="cjd9qc64i000z9b9zg1xbuwkk" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作用域/">作用域</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-执行上下文" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/12/执行上下文/" class="article-date">
+  <time class="post-time" datetime="2017-11-12T08:53:25.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/12/执行上下文/">执行上下文</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。</p>
+<p>对每个执行上下文，都有三个重要属性：</p>
+<ul>
+<li>变量对象(Variable object，VO)</li>
+<li>作用域链(Scope chain)</li>
+<li>this</li>
+</ul>
+<p>可执行代码类型：</p>
+<ul>
+<li>全局代码  （函数外面的代码）</li>
+<li>函数代码  </li>
+<li>eval 代码 （eval 函数中写的代码）</li>
+</ul>
+<p>当执行一个函数时，会进行 <strong>“准备工作”</strong> ——专业点称为——： <strong>“执行上下文”</strong>。</p>
+<p>JavaScript 引擎创建了 <strong>执行上下文栈</strong> ，以便于管理执行上下文。</p>
+<p>为了模拟执行上下文栈的行为，将它定义为一个数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stack = [];</div></pre></td></tr></table></figure></p>
+<p>当JavaScript开始执行解释代码时，会遇到全局代码，所以初始化时，会像数组中推入 “全局代码” ，并且只有当整个应用程序结束后，才会清空 <code>Stack</code> ，删除前的最底部总有个全局代码。</p>
+<p>当执行一个函数的时候，会创建一个执行上下文，并且推入执行上下文栈中，当函数执行完毕时，就会将函数的执行上下文从栈中弹出。</p>
+<p>如果出现嵌套函数并调用的话，那么会一起随后推入到栈中。然后等运行结束，按顺序弹出。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/11/12/执行上下文/" data-id="cjd9qc654001y9b9zd737k6bh" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/执行上下文栈/">执行上下文栈</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-原型" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/11/原型/" class="article-date">
+  <time class="post-time" datetime="2017-11-11T03:11:04.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/11/原型/">原型和原型链</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://blog.luckyman.xyz/box/Pic/protoAndPrototype.svg" alt=""></p>
+<p>指向： 函数的 <code>prototype</code> 指向一个对象。该对象是调用构造函数生成的实例的原型。</p>
+<p>原型： Js 对象创建时会与之关联另一个对象，而该对象则是其原型。每个对象均会在其原型继承属性。</p>
+<p><code>__proto__</code>： 每个Js对象（除null外）都具有的一个属性 —— 对象的原型。</p>
+<p>构造函数的 <code>prototype</code> &amp; 实例对象的 <code>__proto__</code>都拥有指向其原型的属性，<br>而每个原型只有指向关联构造函数的属性 <code>constructor</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">构造函数 === 构造函数.prototype.constructor</div><div class="line">构造函数.prototype === 原型</div><div class="line">实例.__proto__ === 原型</div><div class="line">构造函数.prototype === 实例.__proto__</div></pre></td></tr></table></figure>
+<p>深度：</p>
+<p><code>__proto__</code> 实际来自 <code>Object.prototype</code> 可以认为是 <code>Getter/Setter</code> ,当使用 <code>objName.__proto__</code> 时，可理解为调用了 <code>Object.getPrototypeOf(objName)</code></p>
+<p>继承 的意思是 复制，然而 Js 默认是不会复制对象的属性的，Js 只在两个对象之间创建一个关联，这样一个对象可通过<strong>委托</strong>访问另一个对象的属性和方法，所以与其叫继承，委托的叫法反而更准确些。。</p>
+<p>小结：<br>函数通过 <code>prototype</code> 访问原型<br>对象通过 <code>__proto__</code> 访问原型<br>原型链通过<code>__proto__</code> 连接起来</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/11/11/原型/" data-id="cjd9qc64z001r9b9zqf02kaie" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-浏览器渲染原理" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/10/浏览器渲染原理/" class="article-date">
+  <time class="post-time" datetime="2017-11-10T05:37:51.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/浏览器渲染原理/">浏览器渲染原理</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>渲染引擎下载 HTML，解析生成 DOM Tree。</li>
+<li>遇到CSS标签 或是 JS脚本标签 就新起线程下载它们，并继续构建 DOM。浏览器引擎通过 DOM Tree 和 Css Rule Tree 构建 Rendering Tree。（CSS 是异步下载同步执行）</li>
+<li>通过 Css Rule Tree 匹配 DOM Tree 进行定位坐标和大小，这个过程称为 Flow 或 Layout。</li>
+<li>最后通过调用 Native Gui 的 API 绘制网页画面的过程称为 Paint。</li>
+</ol>
+<blockquote>
+<p>当用户在浏览页面时进行交互或者通过 JS 改变页面结构时，上面的部分操作可能重复运行，该过程称为 Repaint 或 Reflow。</p>
+</blockquote>
+<p>重排：指 Dom Tree 发生结构变化后，需要重新构建 Dom 结构。<br>重绘：指 Dom 节点样式改变，重新绘制。<br><strong>重排 定会带来 重绘， 而重绘 不一定有 重排。</strong></p>
+<p>减少浏览器重排：</p>
+<ul>
+<li>将需要多次重排的元素，<code>position</code> 属性设置为 <code>absolute</code> 或者 <code>fixed</code>，这样该元素就脱离了文档流，它的变化将不会影响其他元素。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/11/10/浏览器渲染原理/" data-id="cjd9qc65800259b9z56krrf2o" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渲染/">渲染</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-前端性能优化最佳实践" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/07/前端性能优化最佳实践/" class="article-date">
+  <time class="post-time" datetime="2017-11-07T05:08:50.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/前端性能优化最佳实践/">前端性能优化</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>性能优化的一重要指标：<strong>页面加载时间</strong></p>
+<p>此不仅事关<strong>用户体验</strong>，也是<strong>搜索引擎排名</strong>考虑的一个因素。</p>
+<blockquote>
+<ul>
+<li>来自 Google 的数据表明，一个有 10 条数据 0.4 秒能加载完的页面，变成 30 条数据 0.9 秒加载完之后，流量和广告收入下降 90%。</li>
+<li>Google Map 首页文件大小从 100KB 减小到 70-80KB 后，流量在第一周涨了 10%，接下来的三周涨了 25%。</li>
+<li>亚马逊的数据表明：加载时间增加 100 毫秒，销量就下降 1%。</li>
+</ul>
+</blockquote>
+<p>以上数据说明<strong>「加载时间 === 金钱」</strong>，前端优化主要围绕<strong>提高加载速度</strong>进行。</p>
+<p>性能优化 7 个类别共 35 条。</p>
+<p>目录：</p>
+<ul>
+<li>页面内容<ul>
+<li>减少 HTTP 请求数</li>
+<li>减少 DNS 查询</li>
+<li>避免重定向</li>
+<li>缓存 Ajax 请求</li>
+<li>延迟加载</li>
+<li>预先加载</li>
+<li>减少 DOM 元素数量</li>
+<li>划分内容到不同域名</li>
+<li>尽量减少 iframe 使用</li>
+<li>避免 404 错误</li>
+</ul>
+</li>
+<li>服务器<ul>
+<li>使用 CDN</li>
+<li>添加 Expires 或 Cache-Control 响应头</li>
+<li>启用 Gzip</li>
+<li>配置 Etag</li>
+<li>尽早输出缓冲</li>
+<li>Ajax 请求使用 GET 方法</li>
+<li>避免图片 src 为空</li>
+</ul>
+</li>
+<li>Cookie<ul>
+<li>减少 Cookie 大小</li>
+<li>静态资源使用无 Cookie 域名</li>
+</ul>
+</li>
+<li>CSS<ul>
+<li>把样式表放在 <code>&lt;head&gt;</code> 中</li>
+<li>不要使用 CSS 表达式</li>
+<li>使用 <code>&lt;link&gt;</code> 替代 @import</li>
+<li>不要使用 filter</li>
+</ul>
+</li>
+<li>JavaScript<ul>
+<li>把脚本放在页面底部</li>
+<li>使用外部 JavaScript 和 CSS</li>
+<li>压缩 JavaScript 和 CSS</li>
+<li>移除重复脚本</li>
+<li>减少 DOM 操作</li>
+<li>使用高效的事件处理</li>
+</ul>
+</li>
+<li>图片<ul>
+<li>优化图片</li>
+<li>优化 CSS Sprite</li>
+<li>不要在 HTML 中缩放图片</li>
+<li>使用体积小、可缓存的 favicon.ico</li>
+</ul>
+</li>
+<li>移动端<ul>
+<li>保持单个文件小于 25 KB</li>
+<li>打包内容为分段（multipart）文档</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="页面内容"><a href="#页面内容" class="headerlink" title="页面内容"></a>页面内容</h2><h3 id="减少-HTTP-请求数"><a href="#减少-HTTP-请求数" class="headerlink" title="减少 HTTP 请求数"></a>减少 HTTP 请求数</h3><p>Web 前端 80% 的响应时间花在图片、样式、脚本等资源下载上。浏览器对每个域名的连接数是有限制的，减少请求次数是缩短响应时间的关键。</p>
+<p>通过简洁的设计减少页面所需资源，进而减少 HTTP 请求，这是最直接的方式，前提是你的 Boss、设计师同事不打死你。所以，还是另辟蹊径吧：</p>
+<ul>
+<li>合并 JavaScript、CSS 等文件；<ul>
+<li>服务器端（CDN）自动合并</li>
+<li>基于 Node.js 的文件合并工具一抓一大把</li>
+</ul>
+</li>
+<li>使用<a href="https://alistapart.com/article/sprites" target="_blank" rel="external">CSS Sprite</a>：将背景图片合并成一个文件，通过background-image 和 background-position 控制显示；<ul>
+<li><a href="http://www.spritecow.com/" target="_blank" rel="external">Sprite Cow</a></li>
+<li><a href="http://www.spritebox.net/" target="_blank" rel="external">Spritebox</a><blockquote>
+<p>逐步被 Icon Font 和 SVG Sprite 取代。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><a href="https://www.w3.org/TR/html401/struct/objects.html#h-13.6" target="_blank" rel="external">Image Map</a>：合并图片，然后使用坐标映射不同的区域。<blockquote>
+<p>缺点：仅适用于相连的图片；设置坐标过程乏味且易出错；可访性问题。不推荐使用这种过时的技术。</p>
+</blockquote>
+</li>
+<li>Inline Assets：使用 <a href="https://en.wikipedia.org/wiki/Data_URI_scheme" target="_blank" rel="external">Data URI scheme</a> 将图片嵌入 HTML 或者 CSS 中；或者将 CSS、JS、图片直接嵌入 HTML 中。<blockquote>
+<p>会增加文件大小，也可能产生浏览器兼容及其他性能问题（有待整理补充）。<br>未来的趋势是使用内嵌 SVG。</p>
+</blockquote>
+</li>
+<li><a href="">内容分片</a>，将请求划分到不同的域名上。<blockquote>
+<p>HTTP/2 通过多路复用大幅降低了多个请求的开销。通过数据分帧层，客户端和服务器之间只需要建立一个 TCP 连接，即可同时收发多个文件，而且，该连接在相当长的时间周期内保持打开（持久化），以便复用。<br>HTTP/2 的新特性意味着上述优化实践不再适用，但考虑到客户端对 HTTP/2 的支持覆盖程度，还需根据实际数据权衡。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="减少-DNS-查询"><a href="#减少-DNS-查询" class="headerlink" title="减少 DNS 查询"></a>减少 DNS 查询</h3><p>用户输入 URL 以后，浏览器首先要查询域名（hostname）对应服务器的 IP 地址，一般需要耗费 20-120 毫秒 时间。DNS 查询完成之前，浏览器无法从服务器下载任何数据。</p>
+<p>基于性能考虑，ISP、局域网、操作系统、浏览器都会有相应的 DNS 缓存机制。</p>
+<p>IE 缓存 30 分钟，可以通过注册表中 DnsCacheTimeout 项设置；<br>Firefox 混存 1 分钟，通过 network.dnsCacheExpiration 配置；<br>（TODO：补充其他浏览器缓存信息）<br>首次访问、没有相应的 DNS 缓存时，域名越多，查询时间越长。所以应尽量减少域名数量。但基于并行下载考虑，把资源分布到 2 个域名上（最多不超过 4 个）。这是减少 DNS 查询同时保证并行下载的折衷方案。</p>
+<h3 id="避免重定向"><a href="#避免重定向" class="headerlink" title="避免重定向"></a>避免重定向</h3><p>HTTP 重定向通过 <code>301</code>/<code>302</code> 状态码实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 301 Moved Permanently</div><div class="line">Location: http://example.com/newuri</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure></p>
+<p>客户端收到服务器的重定向响应后，会根据响应头中 <code>Location</code> 的地址再次发送请求。重定向会影响用户体验，尤其是多次重定向时，用户在一段时间内看不到任何内容，只看到浏览器进度条一直在刷新。</p>
+<p>有时重定向无法避免，在糟糕也比抛出 404 好。虽然通过 <a href="https://en.wikipedia.org/wiki/Meta_refresh" target="_blank" rel="external">HTML meta refresh</a> 和 JavaScript 也能实现，但首选 HTTP <code>3xx</code> 跳转，以保证浏览器「后退」功能正常工作（也利于 SEO）。</p>
+<p>最浪费的重定向经常发生、而且很容易被忽略：URL 末尾应该添加 <code>/</code> 但未添加。比如，访问 <code>http://astrology.yahoo.com/astrology</code> 将被 301 重定向到 <code>http://astrology.yahoo.com/astrology/</code>（注意末尾的 <code>/</code>）。如果使用 Apache，可以通过 <code>Alias</code> 或 <code>mod_rewrite</code> 或 <code>DirectorySlash</code> 解决这个问题。<br>网站域名变更：CNAME 结合 <code>Alias</code> 或 <code>mod_rewrite</code> 或者其他服务器类似功能实现跳转。</p>
+<h3 id="缓存-Ajax-请求"><a href="#缓存-Ajax-请求" class="headerlink" title="缓存 Ajax 请求"></a>缓存 Ajax 请求</h3><p>Ajax 可以提高用户体验。但「异步」不意味着「及时」，优化 Ajax 响应速度提高性能仍是需要关注的主题。</p>
+<p>最重要的的优化方式是<strong>缓存响应结果</strong>，详见 添加 Expires 或 Cache-Control 响应头。</p>
+<p>以下规则也关乎 Ajax 响应速度：</p>
+<p>启用 Gzip<br>减少 DNS 查询<br>压缩 JavaScript 和 CSS<br>避免重定向<br>配置 Etag</p>
+<h3 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h3><p>页面初始加载时哪些内容是绝对必需的？不在答案之列的资源都可以延迟加载。比如：</p>
+<p>非首屏使用的数据、样式、脚本、图片等；<br>用户交互时才会显示的内容。<br>遵循「渐进增强」理念开发的网站：JavaScript 用于增强用用户体验，但没有（不支持） JavaScript 也能正常工作，完全可以延迟加载 JavaScript。</p>
+<ul>
+<li>延迟渲染<blockquote>
+<p>将首屏以外的 HTML 放在不渲染的元素中，如隐藏的 <code>&lt;textarea&gt;</code>，或者 type 属性为非执行脚本的 <code>&lt;script&gt;</code> 标签中，减少初始渲染的 DOM 元素数量，提高速度。等首屏加载完成或者用户操作时，再去渲染剩余的页面内容。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="预先加载"><a href="#预先加载" class="headerlink" title="预先加载"></a>预先加载</h3><p>预先加载利用浏览器空闲时间请求将来要使用的资源，以便用户访问下一页面时更快地响应。</p>
+<ul>
+<li><p>无条件预先加载：页面加载完成（load）后，马上获取其他资源。以 google.com 为例，首页加载完成后会立即下载一个 Sprite 图片，此图首页不需要，但是搜索结果页要用到。</p>
+</li>
+<li><p>有条件预先加载：根据用户行为预判用户去向，预载相关资源。比如 search.yahoo.com 开始输入时会有额外的资源加载。</p>
+</li>
+</ul>
+<blockquote>
+<p>Chrome 等浏览器的地址栏也有类似的机制。</p>
+</blockquote>
+<ul>
+<li>有「阴谋」的预先加载：页面即将上线新版前预先加载新版内容。网站改版后由于缓存、使用习惯等原因，会有旧版的网站更快更流畅的反馈。为缓解这一问题，在新版上线之前，旧版可以利用空闲提前加载一些新版的资源缓存到客户端，以便新版正式上线后更快的载入（好一个「心机猿」:scream:）。</li>
+</ul>
+<blockquote>
+<p>「双十一」、「黑五」这类促销日来临之前，也可以预先下载一些相关资源到客户端（浏览器、App 等），有效利用浏览器缓存和本地存储，降低活动当日请求压力，提高用户体验。</p>
+</blockquote>
+<p>TODO: Prefetch 相关细节</p>
+<ul>
+<li><a href="https://www.w3.org/TR/resource-hints/" target="_blank" rel="external">Resource Hints Spec</a></li>
+</ul>
+<h3 id="减少-DOM-元素数量"><a href="#减少-DOM-元素数量" class="headerlink" title="减少 DOM 元素数量"></a>减少 DOM 元素数量</h3><p>复杂的页面不仅下载的字节更多，JavaScript DOM 操作也更慢。例如，同是添加一个事件处理器，500 个元素和 5000 个元素的页面速度上会有很大区别。</p>
+<p>从以下几个角度考虑移除不必要的标记：</p>
+<ul>
+<li>是否还在使用表格布局？</li>
+<li>塞进去更多的 <code>&lt;div&gt;</code> 仅为了处理布局问题？也许有更好、更语义化的标记。</li>
+<li>能通过伪元素实现的功能，就没必要添加额外元素，如清除浮动。</li>
+</ul>
+<p>浏览器控制台中输入以下代码可以计算出页面中有多少 DOM 元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.getElementsByTagName(&apos;*&apos;).length;</div></pre></td></tr></table></figure>
+<p>对比标记良好的的网站，看看差距是多少。</p>
+<ul>
+<li>为什么不使用表格布局？<ul>
+<li>更多的标签，增加文件大小；</li>
+<li>不易维护，无法适应响应式设计；</li>
+<li>性能考量，默认的表格布局算法会产生大量重绘。</li>
+</ul>
+</li>
+</ul>
+<h3 id="划分内容到不同域名"><a href="#划分内容到不同域名" class="headerlink" title="划分内容到不同域名"></a>划分内容到不同域名</h3><p>浏览器一般会限制每个域的并行线程（一般为 6 个，甚至更少），使用不同的域名可以最大化下载线程，但注意保持在 2-4 个域名内，以避免 DNS 查询损耗。</p>
+<p>例如，动态内容放在 <code>csspod.com</code> 上，静态资源放在 <code>static.csspod.com</code> 上。这样还可以禁用静态资源域下的 Cookie，减少数据传输。</p>
+<p>更多信息参考 <a href="https://yuiblog.com/blog/2007/04/11/performance-research-part-4/" target="_blank" rel="external">Maximizing Parallel Downloads in the Carpool Lane</a></p>
+<h3 id="尽量减少-iframe-使用"><a href="#尽量减少-iframe-使用" class="headerlink" title="尽量减少 iframe 使用"></a>尽量减少 iframe 使用</h3><p>使用 iframe 可以在页面中嵌入 HTML 文档，但有利有弊。</p>
+<p><code>&lt;iframe&gt;</code> 优点：</p>
+<ul>
+<li>可以用来加载速度较慢的第三方资源，如广告、徽章；</li>
+<li>可用作安全沙箱；</li>
+<li>可以并行下载脚本。</li>
+</ul>
+<p><code>&lt;iframe&gt;</code> 缺点：</p>
+<ul>
+<li>加载代价昂贵，即使是空的页面；</li>
+<li>阻塞页面 load 事件触发；<blockquote>
+<p>Iframe 完全加载以后，父页面才会触发 load 事件。 Safari、Chrome 中通过 JavaScript 动态设置 iframe src 可以避免这个问题。</p>
+</blockquote>
+</li>
+<li>缺乏语义。</li>
+</ul>
+<h3 id="避免-404-错误"><a href="#避免-404-错误" class="headerlink" title="避免 404 错误"></a>避免 404 错误</h3><p>HTTP 请求很昂贵，返回无效的响应（如 404 未找到）完全没必要，降低用户体验而且毫无益处。</p>
+<p>一些网站设计很酷炫、有提示信息的 404 页面，有助于提高用户体验，但还是浪费服务器资源。尤其糟糕的是外部脚本返回 404，不仅阻塞其他资源下载，浏览器还会尝试把 404 页面内容当作 JavaScript 解析，消耗更多资源。</p>
+<p>补充规则：<br><strong>定义字符集</strong>，<strong>并放在 <code>&lt;head&gt;</code> 顶部</strong>。大多数浏览器会暂停页面渲染，直到找到字符集定义。</p>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p>服务器相关优化设置可参考 H5BP 相关项目：</p>
+<ul>
+<li><a href="https://github.com/h5bp/server-configs-nginx" target="_blank" rel="external">Nginx HTTP server boilerplate configs</a></li>
+<li><a href="https://github.com/h5bp/server-configs-apache" target="_blank" rel="external">Apache HTTP server boilerplate configs</a></li>
+<li><a href="https://github.com/h5bp/server-configs-iis" target="_blank" rel="external">IIS Web.Config Boilerplates</a></li>
+</ul>
+<h3 id="使用-CDN"><a href="#使用-CDN" class="headerlink" title="使用 CDN"></a>使用 CDN</h3><p>网站 80-90% 响应时间消耗在资源下载上，<strong>减少资源下载时间是性能优化的黄金发则</strong>。<br>相比分布式架构的复杂和巨大投入，静态内容分发网络（CDN）可以以较低的投入，获得加载速度有效提升。</p>
+<h3 id="添加-Expires-或-Cache-Control-响应头"><a href="#添加-Expires-或-Cache-Control-响应头" class="headerlink" title="添加 Expires 或 Cache-Control 响应头"></a>添加 Expires 或 Cache-Control 响应头</h3><ul>
+<li><strong>静态内容</strong>：将 Expires 响应头设置为将来很远的时间，实现「永不过期」策略；</li>
+<li><strong>动态内容</strong>：设置合适的 Cache-Control 响应头，让浏览器有条件地发起请求。</li>
+</ul>
+<blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="external">Cache-Control</a> 头在 HTTP/1.1 规范中定义，取代了之前用来定义响应缓存策略的头（例如 Expires、Pragma）。当前的所有浏览器都支持 Cache-Control，因此，使用它就够了。</p>
+<p>鉴于静态内容和动态内容不同的缓存策略，实践中一般会把二者部署在不同的服务器（域名）以方便管理。</p>
+</blockquote>
+<p>参考链接：<br><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn" target="_blank" rel="external">HTTP 缓存 | Web Fundamentals - Google Developers</a><br><a href="https://github.com/h5bp/server-configs" target="_blank" rel="external">H5BP - Server Configs</a></p>
+<h3 id="启用-Gzip"><a href="#启用-Gzip" class="headerlink" title="启用 Gzip"></a>启用 Gzip</h3><p>Gzip 压缩通常可以减少 70% 的响应大小，对某些文件更可能高达 90%，比 Deflate 更高效。主流 Web 服务器都有相应模块，而且绝大多数浏览器支持 gzip 解码。所以，应该对 HTML、CSS、JS、XML、JSON 等文本类型的内容启用压缩。</p>
+<p><strong>注意</strong>，图片和 PDF 文件不要使用 gzip。它们本身已经压缩过，再使用 gzip 压缩不仅浪费 CPU 资源，而且还可能增加文件体积。</p>
+<p>对于不支持的 Gzip 的用户代理，通过设置 Vary 响应头，返回为未压缩的数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vary: *</div></pre></td></tr></table></figure></p>
+<h3 id="配置-Etag"><a href="#配置-Etag" class="headerlink" title="配置 Etag"></a>配置 Etag</h3><p>Etag 通过文件版本标识，方便服务器判断请求的内容是否有更新，如果没有就响应 <code>304</code>，避免重新下载。</p>
+<p>当然，启用 Etag 可能会导致其他问题，还需要根据具体情况做判断。</p>
+<h3 id="尽早输出（flush）缓冲"><a href="#尽早输出（flush）缓冲" class="headerlink" title="尽早输出（flush）缓冲"></a>尽早输出（flush）缓冲</h3><p>用户请求页面时，服务器通常需要花费 200 ~ 500 毫秒来组合 HTML 页面。在此期间，浏览器处于空闲、等待数据状态。使用PHP 中的 flush() 函数，可以发送部分已经准备好的 HTML 到浏览器，以便服务器还在忙于处理剩余页面时，浏览器可以提前开始获取资源。</p>
+<p>可以考虑在 <code>&lt;/head&gt;</code> 之后输出一次缓冲，HTML head 一般比较容易生成，先发送以便浏览器开始获取 <code>&lt;head&gt;</code> 里引用的 CSS 等资源。</p>
+<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- css, js --&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;?php flush(); ?&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!-- content --&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Ajax-请求使用-GET-方法"><a href="#Ajax-请求使用-GET-方法" class="headerlink" title="Ajax 请求使用 GET 方法"></a>Ajax 请求使用 GET 方法</h3><p>浏览器执行 XMLHttpRequest POST 请求时分成两步，先发送 Header，再发送数据。而 GET 只使用一个 TCP 数据包发送数据，所以首选 GET 方法。</p>
+<p>根据 HTTP 规范，GET 用于获取数据，POST 则用于向服务器发送数据，所以 Ajax 请求数据时使用 GET 更符合规范（GET 和 POST 对比）。</p>
+<p>IE 中最大 URL 长度为 2K，如果超出 2K，则需要考虑使用 POST 方法。</p>
+<h3 id="避免图片-src-为空"><a href="#避免图片-src-为空" class="headerlink" title="避免图片 src 为空"></a>避免图片 src 为空</h3><p>图片 src 属性值为空字符串可能以下面两种形式出现：</p>
+<p>HTML:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&quot;&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<p>JavaScript：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var img = new Image(); </div><div class="line">img.src = &quot;&quot;;</div></pre></td></tr></table></figure>
+<p>虽然 src 属性为空字符串，但浏览器仍然会向服务器发起一个 HTTP 请求：</p>
+<ul>
+<li>IE 向页面所在的目录发送请求；</li>
+<li>Safari、Chrome、Firefox 向页面本身发送请求；</li>
+<li>Opera 不执行任何操作。</li>
+</ul>
+<blockquote>
+<p>以上数据较老，当下主流版本可能会有改变。</p>
+</blockquote>
+<p>空 src 产生请求的后果不容小觑：</p>
+<ul>
+<li>给服务器造成意外的流量负担，尤其时日 PV 较大时；</li>
+<li>浪费服务器计算资源；</li>
+<li>可能产生报错。<blockquote>
+<p>当然，浏览器如此实现也是根据 RFC 3986 - Uniform Resource Identifiers，当空字符串作为 URI 出现时，被当成相对 URI，具体算法参见规范 5.2 节。</p>
+</blockquote>
+</li>
+</ul>
+<p>参考链接：<br><a href="">Empty image src can destroy your site</a></p>
+<blockquote>
+<p>空的 href 属性也存在类似问题。用户点击空链接时，浏览器也会向服务器发送 HTTP 请求，可以通过 JavaScript 阻止空链接的默认的行为。</p>
+</blockquote>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="减少-Cookie-大小"><a href="#减少-Cookie-大小" class="headerlink" title="减少 Cookie 大小"></a>减少 Cookie 大小</h3><p>Cookie 被用于身份认证、个性化设置等诸多用途。Cookie 通过 HTTP 头在服务器和浏览器间来回传送，减少 Cookie 大小可以降低其对响应速度的影响。</p>
+<ul>
+<li>去除不必要的 Cookie；</li>
+<li>尽量压缩 Cookie 大小；</li>
+<li>注意设置 Cookie 的 domain 级别，如无必要，不要影响到 sub-domain；</li>
+<li>设置合适的过期时间。</li>
+</ul>
+<p>更多细节参考 <a href="http://yuiblog.com/blog/2007/03/01/performance-research-part-3/" target="_blank" rel="external">When the Cookie Crumbles</a>。</p>
+<blockquote>
+<p>HTTP/2 首部压缩在客户端和服务器端使用「首部表」来跟踪和存储之前发送的键值对，对于相同的数据，不再随每次请求和响应发送。</p>
+</blockquote>
+<h3 id="静态资源使用无-Cookie-域名"><a href="#静态资源使用无-Cookie-域名" class="headerlink" title="静态资源使用无 Cookie 域名"></a>静态资源使用无 Cookie 域名</h3><p>静态资源一般无需使用 Cookie，可以把它们放在使用二级域名或者专门域名的无 Cookie 服务器上，降低 Cookie 传送的造成的流量浪费，提高响应速度。</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="把样式表放在-lt-head-gt-中"><a href="#把样式表放在-lt-head-gt-中" class="headerlink" title="把样式表放在 &lt;head&gt; 中"></a>把样式表放在 <code>&lt;head&gt;</code> 中</h3><p>把样式表放在 <code>&lt;head&gt;</code> 中可以让页面渐进渲染，尽早呈现视觉反馈，给用户加载速度很快的感觉。</p>
+<p>这对内容比较多的页面尤为重要，用户可以先查看已经下载渲染的内容，而不是盯着白屏等待。</p>
+<p>如果把样式表放在页面底部，一些浏览器为减少重绘，会在 CSS 加载完成以后才渲染页面，用户只能对着白屏干瞪眼，用户体验极差。</p>
+<h3 id="不要使用-CSS-表达式"><a href="#不要使用-CSS-表达式" class="headerlink" title="不要使用 CSS 表达式"></a>不要使用 CSS 表达式</h3><p>CSS 表达式可以在 CSS 里执行 JavaScript，仅 IE5-IE7 支持，IE8 标准模式已经废弃。</p>
+<p>CSS 表达式超出预期的频繁执行，页面滚动、鼠标移动时都会不断执行，带来很大的性能损耗。</p>
+<blockquote>
+<p>IE7 及更低版本的浏览器已经逐渐成为历史，忘记它吧。</p>
+</blockquote>
+<h3 id="使用-lt-link-gt-替代-import"><a href="#使用-lt-link-gt-替代-import" class="headerlink" title="使用 &lt;link&gt; 替代 @import"></a>使用 <code>&lt;link&gt;</code> 替代 @import</h3><p>对于 IE 某些版本，<code>@import</code> 的行为和 <code>&lt;link&gt;</code> 放在页面底部一样。所以，不要用它。</p>
+<h3 id="不要使用-filter"><a href="#不要使用-filter" class="headerlink" title="不要使用 filter"></a>不要使用 filter</h3><p><code>AlphaImageLoader</code> 为 IE5.5-IE8 专有的技术，和 CSS 表达式一样，放进博物馆吧。</p>
+<p>注意：<br>这里所说的不是 <a href="https://www.w3.org/TR/filter-effects-1/" target="_blank" rel="external">CSS3 Filter</a>，参考文章 <a href="https://www.html5rocks.com/en/tutorials/filters/understanding-css/" target="_blank" rel="external">Understanding CSS Filter Effects</a></p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="把脚本放在页面底部"><a href="#把脚本放在页面底部" class="headerlink" title="把脚本放在页面底部"></a>把脚本放在页面底部</h3><p>浏览器下载脚本时，会阻塞其他资源并行下载，即使是来自不同域名的资源。因此，最好将脚本放在底部，以提高页面加载速度。</p>
+<p>一些特殊场景无法将脚本放到页面底部的，可以考虑 <code>&lt;script&gt;</code> 的以下属性：<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement#defer_property" target="_blank" rel="external"><code>defer</code> 属性</a>；<br>HTML5 新增的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement#async_property" target="_blank" rel="external"><code>async</code> 属性</a>。</p>
+<h3 id="使用外部-JavaScript-和-CSS"><a href="#使用外部-JavaScript-和-CSS" class="headerlink" title="使用外部 JavaScript 和 CSS"></a>使用外部 JavaScript 和 CSS</h3><p>外部 JavaScript 和 CSS 文件可以被浏览器缓存，在不同页面间重用，也能降低页面大小。</p>
+<p>当然，实际中也需要考虑代码的重用程度。如果仅仅是某个页面使用到的代码，可以考虑内嵌在页面中，减少 HTTP 请求数。另外，可以在首页加载完成以后，预先加载子页面的资源。</p>
+<h3 id="压缩-JavaScript-和-CSS"><a href="#压缩-JavaScript-和-CSS" class="headerlink" title="压缩 JavaScript 和 CSS"></a>压缩 JavaScript 和 CSS</h3><p>压缩代码可以移除非功能性的字符（注释、空格、空行等），减少文件大小，提高载入速度。   </p>
+<blockquote>
+<ul>
+<li>得益于 Node.js 的流行，开源社区涌现出许多高效、易用的前端优化工具，JavaScript 和 CSS 压缩类的，不敢说多如牛毛，多如鸡毛倒是一点不夸张，如 <a href="https://github.com/mishoo/UglifyJS2" target="_blank" rel="external">UglifyJS 2</a>、csso、cssnano 等。</li>
+<li>对于内嵌的 CSS 和 JavaScript，也可以通过 htmlmin 等工具压缩。</li>
+<li>这些项目都有 Gulp、Webpack 等流行构建工具的配套版本。</li>
+</ul>
+</blockquote>
+<h3 id="移除重复脚本"><a href="#移除重复脚本" class="headerlink" title="移除重复脚本"></a>移除重复脚本</h3><p>重复的脚本不仅产生不必要的 HTTP 请求，而且重复解析执行浪费时间和计算资源。</p>
+<h3 id="减少-DOM-操作"><a href="#减少-DOM-操作" class="headerlink" title="减少 DOM 操作"></a>减少 DOM 操作</h3><p>JavaScript 操作 DOM 很慢，尤其是 DOM 节点很多时。<br>使用时应该注意：</p>
+<ul>
+<li>缓存已经访问过的元素；</li>
+<li>使用 DocumentFragment 暂存 DOM，整理好以后再插入 DOM 树；</li>
+<li>操作 className，而不是多次读写 style；</li>
+<li>避免使用 JavaScript 修复布局。</li>
+</ul>
+<h3 id="使用高效的事件处理"><a href="#使用高效的事件处理" class="headerlink" title="使用高效的事件处理"></a>使用高效的事件处理</h3><ul>
+<li>减少绑定事件监听的节点，如通过事件委托；</li>
+<li>尽早处理事件，在 <code>DOMContentLoaded</code> 即可进行，不用等到 <code>load</code> 以后。<blockquote>
+<p>对于 resize、scroll 等触发频率极高的事件，应该通过 debounce 等机制降低处理程序执行频率。<br>TODO: 补充相关内容 <a href="http://demo.nimius.net/debounce_throttle/" target="_blank" rel="external">http://demo.nimius.net/debounce_throttle/</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="优化图片"><a href="#优化图片" class="headerlink" title="优化图片"></a>优化图片</h3><p>YDN <a href="https://developer.yahoo.com/performance/rules.html#opt_images" target="_blank" rel="external">列出的相关工具</a> 缺乏易用性，建议参考以下工具。</p>
+<ul>
+<li><a href="https://github.com/imagemin/imagemin" target="_blank" rel="external">imagemin</a></li>
+<li><a href="https://imageoptim.com/mac" target="_blank" rel="external">ImageOptim</a><blockquote>
+<p>TODO: PNG 终极优化； Webp 相关内容； SVG 相关内容。 </p>
+</blockquote>
+</li>
+</ul>
+<p>PNG 终极优化：<br><a href="http://www.queness.com/post/2507/most-effective-method-to-reduce-and-optimize-png-images" target="_blank" rel="external">Most Effective Method to Reduce and Optimize PNG Images</a><br><a href="https://www.smashingmagazine.com/2009/07/clever-png-optimization-techniques/" target="_blank" rel="external">Clever PNG Optimization Techniques</a></p>
+<h3 id="优化-CSS-Sprite"><a href="#优化-CSS-Sprite" class="headerlink" title="优化 CSS Sprite"></a>优化 CSS Sprite</h3><ul>
+<li>水平排列 Sprite 中的图片，垂直排列会增加图片大小；</li>
+<li>Spirite 中把颜色较近的组合在一起可以降低颜色数，理想状况是低于 256 色以适用 PNG8 格式；</li>
+<li>不要在 Spirite 的图像中间留有较大空隙。减少空隙虽然不太影响文件大小，但可以降低用户代理把图片解压为像素图的内存消耗，对移动设备更友好。</li>
+</ul>
+<h3 id="不要在-HTML-中缩放图片"><a href="#不要在-HTML-中缩放图片" class="headerlink" title="不要在 HTML 中缩放图片"></a>不要在 HTML 中缩放图片</h3><p>不要使用 <code>&lt;img&gt;</code> 的 width、height 缩放图片，如果用到小图片，就使用相应大小的图片。</p>
+<blockquote>
+<p>很多 CMS 和 CDN 都提供图片裁切功能。</p>
+</blockquote>
+<h3 id="使用体积小、可缓存的-favicon-ico"><a href="#使用体积小、可缓存的-favicon-ico" class="headerlink" title="使用体积小、可缓存的 favicon.ico"></a>使用体积小、可缓存的 favicon.ico</h3><p>Favicon.ico 一般存放在网站根目录下，无论是否在页面中设置，浏览器都会尝试请求这个文件。</p>
+<p>所以确保这个图标：</p>
+<ul>
+<li>存在（避免 404）；</li>
+<li>尽量小，最好小于 1K；</li>
+<li>设置较长的过期时间。</li>
+</ul>
+<blockquote>
+<p>对于较新的浏览器，可以使用 PNG 格式的 favicon。</p>
+</blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a href="https://css-tricks.com/favicon-quiz/" target="_blank" rel="external">Favicons, Touch Icons, Tile Icons, etc. Which Do You Need?</a></li>
+</ul>
+<p>图片相关补充</p>
+<blockquote>
+<p>设置图片的宽和高，以免浏览器按照「猜」的宽高给图片保留的区域和实际宽高差异，产生重绘。</p>
+</blockquote>
+<h2 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h2><blockquote>
+<p>移动端优化相关内容有待进一步整理补充。</p>
+</blockquote>
+<h3 id="保持单个文件小于-25-KB"><a href="#保持单个文件小于-25-KB" class="headerlink" title="保持单个文件小于 25 KB"></a><a href="https://developer.yahoo.com/performance/rules.html#under25" target="_blank" rel="external">保持单个文件小于 25 KB</a></h3><h3 id="打包内容为分段（multipart）文档"><a href="#打包内容为分段（multipart）文档" class="headerlink" title="打包内容为分段（multipart）文档"></a><a href="https://developer.yahoo.com/performance/rules.html#multipart" target="_blank" rel="external">打包内容为分段（multipart）文档</a></h3><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="http://www.websiteoptimization.com/speed/tweak/psychology-web-performance/" target="_blank" rel="external">The Psychology of Web Performance</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/11/07/前端性能优化最佳实践/" data-id="cjd9qc64s001d9b9zk3og5d2w" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web性能优化/">Web性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

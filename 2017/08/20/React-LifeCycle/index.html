@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>理解 React 生命周期 | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React「just the UI」，相比 Angular、Ember 等完整的解决方案，上手相对容易。不过，React 生命周期还是会让新手迷惑，而掌握每个生命周期方法扮演的角色和执行时间又是至关重要的：  什么时候进行事件绑定、数据请求、解除绑定等操作？ 如何减少不必要的重渲染，提高性能？尽管 React 已经通过特定的算法优化渲染，但折中的处理方式仍会触发一些不必要的渲染。  React 组">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解 React 生命周期">
+<meta property="og:url" content="http://blog.luckyman.xyz/2017/08/20/React-LifeCycle/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="React「just the UI」，相比 Angular、Ember 等完整的解决方案，上手相对容易。不过，React 生命周期还是会让新手迷惑，而掌握每个生命周期方法扮演的角色和执行时间又是至关重要的：  什么时候进行事件绑定、数据请求、解除绑定等操作？ 如何减少不必要的重渲染，提高性能？尽管 React 已经通过特定的算法优化渲染，但折中的处理方式仍会触发一些不必要的渲染。  React 组">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.luckyman.xyz/box/Pic/initialMount.svg">
+<meta property="og:image" content="http://blog.luckyman.xyz/box/Pic/propsChange.svg">
+<meta property="og:image" content="http://blog.luckyman.xyz/box/Pic/stateChange.svg">
+<meta property="og:image" content="http://blog.luckyman.xyz/box/Pic/unmount.svg">
+<meta property="og:updated_time" content="2018-02-05T04:14:09.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解 React 生命周期">
+<meta name="twitter:description" content="React「just the UI」，相比 Angular、Ember 等完整的解决方案，上手相对容易。不过，React 生命周期还是会让新手迷惑，而掌握每个生命周期方法扮演的角色和执行时间又是至关重要的：  什么时候进行事件绑定、数据请求、解除绑定等操作？ 如何减少不必要的重渲染，提高性能？尽管 React 已经通过特定的算法优化渲染，但折中的处理方式仍会触发一些不必要的渲染。  React 组">
+<meta name="twitter:image" content="http://blog.luckyman.xyz/box/Pic/initialMount.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-React-LifeCycle" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/20/React-LifeCycle/" class="article-date">
+  <time class="post-time" datetime="2017-08-20T08:03:15.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">20</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      理解 React 生命周期
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/新知识/">新知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React「just the UI」，相比 Angular、Ember 等完整的解决方案，上手相对容易。不过，React 生命周期还是会让新手迷惑，而掌握每个生命周期方法扮演的角色和执行时间又是至关重要的：</p>
+<ul>
+<li>什么时候进行事件绑定、数据请求、解除绑定等操作？</li>
+<li>如何减少不必要的重渲染，提高性能？尽管 React 已经通过特定的算法优化渲染，但折中的处理方式仍会触发一些不必要的渲染。</li>
+</ul>
+<p>React 组件的生命周期有三个主要场景：</p>
+<ul>
+<li>装载（Mounting）：组件被插入到 DOM 中；</li>
+<li>更新（Updating）：组件重新渲染以更新 DOM；</li>
+<li>卸载（Unmounting）：组件从 DOM 中移除。</li>
+</ul>
+<p>不同的场景会调用不同的生命周期方法，包含 <code>will</code> 的方法在某个时间节点<strong>之前</strong>执行，包含 <code>did</code> 方法在某个时间节点<strong>之后</strong>执行。</p>
+<h2 id="初始渲染（装载）"><a href="#初始渲染（装载）" class="headerlink" title="初始渲染（装载）"></a>初始渲染（装载）</h2><p><img src="http://blog.luckyman.xyz/box/Pic/initialMount.svg" alt=""></p>
+<h2 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object getDefaultProps()</div></pre></td></tr></table></figure>
+<p>该方法在<strong>组件创建时（createClass）执行一次并缓存</strong>返回值。如果组件使用时未设置属性，就从缓存中读取默认属性。<strong>注意</strong>：getDefaultProps() 返回的缓存数据会在所有实例间共享。</p>
+<p><em>注意：<br>getDefaultProps 在任何实例创建之前执行，不在装载阶段执行，放在这里只是为了方便理解 React 组件初始化流程。</em></p>
+<h2 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object getInitialState()</div></pre></td></tr></table></figure>
+<p>组件装载之前执行一次，返回值用作 this.state 的初始值。</p>
+<h2 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillMount()</div></pre></td></tr></table></figure>
+<p>初始渲染之前执行一次，前后端都有。如果在该方法中调用 setState，render() 将接收到更新后的数据，并且只会执行一次（即使状态已经改变）。</p>
+<h2 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentDidMount()</div></pre></td></tr></table></figure>
+<p>初始渲染完成后立即执行一次，只在客户端执行（服务器端没有）。</p>
+<p>子组件的 <code>componentDidMount()</code> 方法先于父组件之前执行，此时可以操作子组件的任何引用（如操作子组件 DOM）。</p>
+<p>在此方法中可进行：</p>
+<ul>
+<li>与其他 JavaScript 框架集成，如初始化 jQuery 插件；</li>
+<li>使用 setTimeout/setInterval 设置定时器；</li>
+<li>通过 Ajax/Fetch 获取数据；</li>
+<li>绑定 DOM 事件；</li>
+<li>……</li>
+</ul>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>更新会在 React 组件初始渲染之后、卸载之前多次发生，属性、状态改变都会触发更新。</p>
+<p>属性改变触发的更新流程：<br><img src="http://blog.luckyman.xyz/box/Pic/propsChange.svg" alt=""><br>状态改变触发的更新流程：<br><img src="http://blog.luckyman.xyz/box/Pic/stateChange.svg" alt=""></p>
+<p>componentWillReceiveProps<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillReceiveProps(</div><div class="line">  object nextProps, object nextContext</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>组件即将接收新属性之前执行，初始渲染不执行。</p>
+<p>该方法用于比较当前属性（<code>this.props</code>）和新属性（<code>nextProps</code>），以便决定是否通过 <code>this.setState()</code> 进行状态转换。此方法中调用 <code>this.setState()</code> 不会触发额外的渲染。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps: function(nextProps) &#123;</div><div class="line">  this.setState(&#123;</div><div class="line">    likesIncreasing: nextProps.likeCount &gt; this.props.likeCount</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>注意：<br>一个常犯的错误是<strong>编写此方法内的代码时，假定属性已经改变。</strong>也就是说，即使属性没有改变，React 仍会在后续更新时执行此方法，所以在编写相关逻辑时，应该先判断属性是否发生改变。</em></p>
+<h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">boolean shouldComponentUpdate(</div><div class="line">  object nextProps, object nextState, object nextContext</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>组件接收到新属性或状态时执行，初始渲染及调用 <code>forceUpdate</code> 时不执行。</p>
+<p>通过比较 <code>this.props</code> 与 <code>nextProps</code> 及 <code>this.state</code> 与 <code>nextState</code>，如果确定新属性、状态无需更新组件，则可以返回 <code>false</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate: function(nextProps, nextState) &#123;</div><div class="line">  return nextProps.id !== this.props.id;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果 <code>shouldComponentUpdate</code> 返回 <code>false</code>，此次更新的将跳过 render()，此外，<code>componentWillUpdate</code> 和 <code>componentDidUpdate</code> 也不会执行。</p>
+<p><code>shouldComponentUpdate</code> 默认始终返回 <code>true</code>，以保证组件渲染与状态同步。</p>
+<p>如果遇到性能瓶颈，尤其是有成百上千组件时，可以考虑使用 <code>shouldComponentUpdate</code> 优化应用。</p>
+<h2 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillUpdate(</div><div class="line">  object nextProps, object nextState, object nextContext</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>组件接收到新属性或状态即将重新渲染之前执行，初始渲染不执行。</p>
+<p><em>注意：<br><strong>不能</strong>在此方法里使用 this.setState()。如果需要更新状态以响应属性变化，使用 componentWillReceiveProps 替代之。</em></p>
+<h2 id="componentDidUpdate"><a href="#componentDidUpdate" class="headerlink" title="componentDidUpdate"></a>componentDidUpdate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentDidUpdate(</div><div class="line">  object prevProps, object prevState, object prevContext</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>组件更新后立即执行，初始渲染不执行。可用作操作发生变化 DOM 的时机。</p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p><img src="http://blog.luckyman.xyz/box/Pic/unmount.svg" alt=""></p>
+<h2 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount"></a>componentWillUnmount</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillUnmount()</div></pre></td></tr></table></figure>
+<p>组件即将从 DOM 中卸载之前执行，可在此进行定时器清除、事件解绑等清理工作。</p>
+<p>参考链接:<br><a href="https://facebook.github.io/react/docs/working-with-the-browser.html#component-lifecycle" target="_blank" rel="external">React Docs: Working With the Browser - Component Lifecycle</a><br><a href="https://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">React Docs: Component Specs and Lifecycle</a><br><a href="https://facebook.github.io/react/docs/advanced-performance.html" target="_blank" rel="external">React Docs: Advanced Performance</a><br><a href="http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/" target="_blank" rel="external">Execution sequence of a React component’s lifecycle methods</a><br><a href="https://csspod.com/understanding-reactjs-lifecycle-methods/" target="_blank" rel="external">文章原处</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/08/20/React-LifeCycle/" data-id="cjd9qc64f000s9b9zs8buftz6" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/21/单页面应用的优缺点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          单页面应用的优缺点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/19/初识TypeScript-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">初识TypeScript_2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

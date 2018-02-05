@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Grid布局 | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Grid 是CSS中最强大的布局系统。它是2-Dimensional System，这意味着它可以同时处理列和行.——(PS：Flex布局主要是1-Dimensional System) 使用基础：1.必须先定义一个容器元素：display: grid2.设置列与行：grid-template-columns | grid-template-rows3.将它的子元素也融入到Grid中：grid-">
+<meta name="keywords" content="Grid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grid布局">
+<meta property="og:url" content="http://blog.luckyman.xyz/2018/02/05/Grid布局/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="Grid 是CSS中最强大的布局系统。它是2-Dimensional System，这意味着它可以同时处理列和行.——(PS：Flex布局主要是1-Dimensional System) 使用基础：1.必须先定义一个容器元素：display: grid2.设置列与行：grid-template-columns | grid-template-rows3.将它的子元素也融入到Grid中：grid-">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-b6501d4e083aa5cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-51611a2850216033.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-a1bebf5438cb4a70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-79a862c96e8e21b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-e4f05e2b2bd22f5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-f6533210e4965540.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-d2ea0a49a6190261.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-5f27a9e10852a37c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-7d0f1f633e9f9164.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-bdd588697d57275e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-680943810e7338cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-f0871f11b7cebed6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-e7ac458c102e41f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-da7aaf0085b93ef9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-6a63a4b072c175cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-44fc3b2c6b757568.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-98e2947524e5a516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4007920-e4b0270a1c49dc03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-05T04:41:31.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grid布局">
+<meta name="twitter:description" content="Grid 是CSS中最强大的布局系统。它是2-Dimensional System，这意味着它可以同时处理列和行.——(PS：Flex布局主要是1-Dimensional System) 使用基础：1.必须先定义一个容器元素：display: grid2.设置列与行：grid-template-columns | grid-template-rows3.将它的子元素也融入到Grid中：grid-">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4007920-b6501d4e083aa5cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-Grid布局" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/05/Grid布局/" class="article-date">
+  <time class="post-time" datetime="2018-02-05T04:21:01.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Grid布局
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Css/">Css</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/4007920-b6501d4e083aa5cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Can I Use"></p>
+<p><strong>Grid</strong> 是CSS中最强大的布局系统。它是<strong>2-Dimensional System</strong>，这意味着它可以同时处理列和行.——(PS：Flex布局主要是1-Dimensional System)</p>
+<h2 id="使用基础："><a href="#使用基础：" class="headerlink" title="使用基础："></a>使用基础：</h2><p>1.必须先定义一个容器元素：<code>display: grid</code><br>2.设置列与行：<code>grid-template-columns</code> | <code>grid-template-rows</code><br>3.将它的子元素也融入到Grid中：<code>grid-column</code> | <code>grid-row</code></p>
+<p>与Flex布局类似，Grid的属性顺序无关紧要。您的CSS可以以任意顺序放置它们，这使得使用媒体查询重新排列网格变得非常容易。想象一下，定义整个页面的布局，然后完全重新排列它，以适应不同的屏幕宽度，只需要几行CSS。网格是有史以来最强大的CSS模块之一。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-51611a2850216033.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Can I Use"></p>
+<h2 id="重要术语的理解"><a href="#重要术语的理解" class="headerlink" title="重要术语的理解"></a>重要术语的理解</h2><p>应用 <code>display: grid</code> 的元素，是为所有 grid items 的父元素：如例子中的container.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Example：</div><div class="line">&lt;div class=&quot;container&quot;&gt;  //Gird Container</div><div class="line">  &lt;div class=&quot;item item-1&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item item-2&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item item-3&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>Grid items 是 GridContainer 的<strong>直接</strong>后代！ 而像 sub-items 则不属于 Grid-items<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;item&quot;&gt;&lt;/div&gt; </div><div class="line">  &lt;div class=&quot;item&quot;&gt;</div><div class="line">  	&lt;p class=&quot;sub-item&quot;&gt;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="线-（Grid-Line）"><a href="#线-（Grid-Line）" class="headerlink" title="线 （Grid Line）"></a>线 （Grid Line）</h2><p>构成 Grid Line 的分界线，可以是垂直的（columns grid line）也可以是水平的（rows grid line），并可位于行/列的任一侧..</p>
+<h2 id="轨道-（Grid-Track）"><a href="#轨道-（Grid-Track）" class="headerlink" title="轨道 （Grid Track）"></a>轨道 （Grid Track）</h2><p>两条相邻的 Grid Line 中间的空间（中间的空间就是轨道），可以想象成Grid的 行或列！<br>Example中, 第二第三条Grid Line 中间就是Grid-Track<br><img src="http://upload-images.jianshu.io/upload_images/4007920-a1bebf5438cb4a70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Track"></p>
+<h2 id="单元格-（Grid-Cell）"><a href="#单元格-（Grid-Cell）" class="headerlink" title="单元格 （Grid Cell）"></a>单元格 （Grid Cell）</h2><p>两个相邻的 列和行的 Grid Line..组成一个 Grid Cell..<br>Example中，黄色部分由 1/2行与2/3列 构成的Grid-Cell<br><img src="http://upload-images.jianshu.io/upload_images/4007920-79a862c96e8e21b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Cell"></p>
+<h2 id="区域-（Area）"><a href="#区域-（Area）" class="headerlink" title="区域 （Area）"></a>区域 （Area）</h2><p>Grid Area 可以由任意数量的 Grid Cell 组成。由四条 Grid Line 包围的总空间<br>Example：由行和列的1/3 Grid Line 包围形成<br><img src="http://upload-images.jianshu.io/upload_images/4007920-e4f05e2b2bd22f5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Area"></p>
+<hr>
+<h1 id="Grid-属性目录"><a href="#Grid-属性目录" class="headerlink" title="Grid 属性目录"></a>Grid 属性目录</h1><table>
+<thead>
+<tr>
+<th>Properties for the Grid Container</th>
+<th>Properties for the Grid Items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>display</td>
+<td>grid-column-start</td>
+</tr>
+<tr>
+<td>grid-template-columns</td>
+<td>grid-column-end</td>
+</tr>
+<tr>
+<td>grid-template-rows</td>
+<td>grid-row-start</td>
+</tr>
+<tr>
+<td>grid-template-areas</td>
+<td>grid-row-end</td>
+</tr>
+<tr>
+<td>grid-template</td>
+<td>grid-column</td>
+</tr>
+<tr>
+<td>grid-column-gap</td>
+<td>grid-row</td>
+</tr>
+<tr>
+<td>grid-row-gap</td>
+<td>grid-area</td>
+</tr>
+<tr>
+<td>grid-gap</td>
+<td>justify-self</td>
+</tr>
+<tr>
+<td>justify-items</td>
+<td>align-self</td>
+</tr>
+<tr>
+<td>align-items</td>
+</tr>
+<tr>
+<td>justify-content</td>
+</tr>
+<tr>
+<td>align-content</td>
+</tr>
+<tr>
+<td>grid-auto-columns</td>
+</tr>
+<tr>
+<td>grid-auto-rows</td>
+</tr>
+<tr>
+<td>grid-auto-flow</td>
+</tr>
+<tr>
+<td>grid</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="属性功能"><a href="#属性功能" class="headerlink" title="属性功能"></a>属性功能</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">display</div></pre></td></tr></table></figure>
+<p>可将元素定义为Grid容器，并为其内容建立新的Grid 格式上下文。</p>
+<ul>
+<li><code>Grid</code> 生成块级Grid</li>
+<li><code>inline-grid</code> 生成内联Grid</li>
+<li><code>subgrid</code> 如果 Grid Container 本身就是一个 Grid Items （嵌套的Grid）..那可使用这个值来根据父元素的行&amp;列来调整大小.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  display: grid | inline-grid | subgrid;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="行-amp-列："><a href="#行-amp-列：" class="headerlink" title="行 &amp; 列："></a>行 &amp; 列：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grid-template-columns </div><div class="line">grid-template-rows</div></pre></td></tr></table></figure>
+<p>使用空格分隔的值 列表定义网格的列和行。这些值表示轨道大小，它们之间的空间表示网格线。</p>
+<ul>
+<li><code>&lt;track-size&gt;</code> - 可以是Grid中的空闲空间的长度，百分比或小部分（使用<code>fr</code>单位）</li>
+<li><code>&lt;line-name&gt;</code> - Grid Line 的任意名称</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</div><div class="line">  grid-template-rows: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Example</div><div class="line">// 在轨迹值之间留出空白区域时，网格线会自动分配数字名称：</div><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 40px 50px auto 50px 40px;</div><div class="line">  grid-template-rows: 25% 100px auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-f6533210e4965540.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自动分配LineName"></p>
+<p>当然也可以命名GridLine..（需要注意的是：名称 需要带括号）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];</div><div class="line">  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-d2ea0a49a6190261.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="命名Grid-Line"><br>一行中可以多个名称，如第二行有 row1-end 和 row2-start：它既是Grid Track 1 的结尾Grid Line 又是 Grid Track 2 的开头Grid Line<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果定义包含重复的部分…可以使用<code>repeat()</code>来简化..<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">grid-template-columns: repeat(3, 20px [col-start]) 5%;</div><div class="line">//等于：</div><div class="line">grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start] 5%;</div></pre></td></tr></table></figure></p>
+<p><code>fr</code>单位允许设置的Track的大小为Grid Container的空间的一小部分。例如，这会将每个项目设置为网格容器宽度的三分之一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 1fr 1fr 1fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果像下面这种情况…分为4列..拥有fr单位的3列将平分总长度（减去50px）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 1fr 50px 1fr 1fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="区域："><a href="#区域：" class="headerlink" title="区域："></a>区域：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grid-template-ares</div></pre></td></tr></table></figure>
+<p>通过引用由 grid-area 属性 指定的GridArea 的名称 来定义 Grid 模板.<br>重复GridArea 的名称 会让内容跨越这些 Grid Cell ..使用<code>.</code> 则代表一个空的Grid Cell</p>
+<ul>
+<li><strong><grid-area-name></grid-area-name></strong> - 指定的Grid Area的名称 -&gt; <code>grid-area</code></li>
+<li><code>.</code> 表示一个空的 Grid Cell</li>
+<li><code>none</code> 没有定义Grid Area<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;&lt;grid-area-name&gt; | . | none | ...&quot;</div><div class="line">    &quot;...&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//Example:</div><div class="line">.item-a &#123;</div><div class="line">  grid-area: header;  //定义Grid Area 名称</div><div class="line">&#125;</div><div class="line">.item-b &#123;</div><div class="line">  grid-area: main;</div><div class="line">&#125;</div><div class="line">.item-c &#123;</div><div class="line">  grid-area: sidebar;</div><div class="line">&#125;</div><div class="line">.item-d &#123;</div><div class="line">  grid-area: footer;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 50px 50px 50px 50px;</div><div class="line">  grid-template-rows: auto;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;header header header header&quot;</div><div class="line">    &quot;main main . sidebar&quot;</div><div class="line">    &quot;footer footer footer footer&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建：<br>列 ：4列<br>行 ：自动<br>区域 第一行四个Grid Cell 均为 Header GridArea<br>区域 第二行两个Grid Cell 为 Main. 一个Cell为空<code>.</code>. 最后一个Cell为 Sidebar.<br>区域 第三行四个Grid Cell 均为 Footer<br><img src="http://upload-images.jianshu.io/upload_images/4007920-5f27a9e10852a37c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid Area"><br>每一行都需要相同数量的GridCell</p>
+<hr>
+<h3 id="Grid-Template"><a href="#Grid-Template" class="headerlink" title="Grid-Template"></a>Grid-Template</h3><p>这是一个 省略写法.<br>可以把 <code>grid-template-rows</code>/<code>grid-template-columns</code>和<code>grid-template-areas</code>.写在同一个声明中。</p>
+<ul>
+<li><code>none</code> - 将所有三个属性设置为其初始值</li>
+<li><code>subgrid</code> - 设置 <code>grid-template-rows</code> 和 <code>grid-template-columns</code> 到 子Grid中去，和将 <code>grid-template-areas</code> 作为它的初始值.</li>
+<li><code>&lt;grid-template-rows&gt;</code>/<code>&lt;grid-template-columns&gt;</code> 分别设置 <code>grid-template-columns</code>和<code>grid-template-rows</code> 指定的值，并设置 <code>grid-template-areas</code>为none。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template: none | subgrid | &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>它接受一个更复杂但相当方便的语法来指定这三个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">.container &#123;</div><div class="line">  grid-template:</div><div class="line">    [row1-start] &quot;header header header&quot; 25px [row1-end]</div><div class="line">    [row2-start] &quot;footer footer footer&quot; 25px [row2-end]</div><div class="line">    / auto 50px auto;</div><div class="line">&#125;</div><div class="line">//  相当：</div><div class="line">.container &#123;</div><div class="line">  grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];</div><div class="line">  grid-template-columns: auto 50px auto;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;header header header&quot; </div><div class="line">    &quot;footer footer footer&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于<code>grid-template</code>不会重置<em>隐式</em>Grid属性（<code>grid-auto-columns</code>, <code>grid-auto-rows</code>, 和 <code>grid-auto-flow</code>）,所以建议尽量使用 grid 属性…</p>
+<hr>
+<h3 id="Grid-cloumns-gap-Grid-row-gap"><a href="#Grid-cloumns-gap-Grid-row-gap" class="headerlink" title="Grid-cloumns-gap | Grid-row-gap"></a>Grid-cloumns-gap | Grid-row-gap</h3><p>指定 Grid-Line 的宽度…<br>可以想想成 列 &amp; 行 之间的宽度..<br>只能在 行/列 之间（如 row 1 start 或 colum 1 start 就没法设置-。-因为在边缘）</p>
+<ul>
+<li><line-size> - Length Value.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-column-gap: &lt;line-size&gt;;</div><div class="line">  grid-row-gap: &lt;line-size&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</line-size></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 100px 50px 100px;</div><div class="line">  grid-template-rows: 80px auto 80px; </div><div class="line">  grid-column-gap: 10px;</div><div class="line">  grid-row-gap: 15px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="Grid-Gap"><a href="#Grid-Gap" class="headerlink" title="Grid-Gap"></a>Grid-Gap</h3><p>又一种简写速记：<code>grid-colunm-gap</code>||<code>grid-row-gap</code></p>
+<ul>
+<li><grid-row-gap> <grid-colunm-gap> - Length Value<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</grid-colunm-gap></grid-row-gap></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 100px 50px 100px;</div><div class="line">  grid-template-rows: 80px auto 80px; </div><div class="line">  grid-gap: 10px 15px;</div><div class="line">&#125;</div><div class="line">//  如果无设置 grid-row-gap..它的值会设置为grid-column-gap</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="Justify-Items"><a href="#Justify-Items" class="headerlink" title="Justify-Items"></a>Justify-Items</h3><p>沿着 <em>行</em>轴 对齐Grid内的内容。该值适用于Container内的所有Grid Items。</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的左端</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的右端</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个宽度（这是默认值）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  justify-items: start | end | center | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Align-Items"><a href="#Align-Items" class="headerlink" title="Align-Items"></a>Align-Items</h3><p>沿 <em>列</em>轴 对齐Grid内的内容。该值适用于Container内的所有Grid Items。</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的顶部</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的底部</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个高度（这是默认值）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  align-items: start | end | center | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Justify-Content"><a href="#Justify-Content" class="headerlink" title="Justify-Content"></a>Justify-Content</h3><p>有时，Grid 的总大小可能小于其Grid Container的大小。如果所有Grid-Items都使用非灵活单位(<code>fr</code>)进行调整，就可能发生这种情况<code>px</code>。在这种情况下，可以设置Grid Container 内的Grid的对齐方式。此属性沿着<em>行</em>轴对齐Grid.</p>
+<ul>
+<li><strong>start</strong> - 将Grid对齐到Grid Container的左端</li>
+<li><strong>end</strong> - 将Grid对齐到Grid Container的右端</li>
+<li><strong>center</strong> - 将Grid对齐到Grid Container的中心</li>
+<li><strong>stretch</strong> - 调整Grid Items的大小以允许Grid填充Grid Container的整个宽度</li>
+<li><strong>space-around</strong> - 在每个Grid物体之间放置一定量的空间。</li>
+<li><strong>space-between</strong> - 在每个Grid物品<strong>之间</strong>放置一个均匀的空间。</li>
+<li><strong>space-evenly</strong> - 在每个Grid Items之间放置一个均匀的空间.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  justify-content: start | end | center | stretch | space-around | space-between | space-evenly;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>跟 <code>justify-content</code> 差不多..<br>唯一不同的是 <code>align-content</code> 是设置水平方向</p>
+<ul>
+<li><strong>start</strong> - 将Grid对齐到Container的顶部</li>
+<li><strong>end</strong> - 将Grid对齐到Container的底部</li>
+<li><strong>center</strong> - 将Grid对齐到Container的中心</li>
+<li><strong>stretch</strong> - 调整Grid Items的大小，以允许网格填充Container的整个高度</li>
+<li><strong>space-around</strong> - 在每个Grid物体之间放置一定量的空间。</li>
+<li><strong>space-between</strong> - 在每个Grid物品<strong>之间</strong>放置一个均匀的空间</li>
+<li><strong>space-evenly</strong> - 在每个Grid-Items之间放置一个均匀的空间。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  align-content: start | end | center | stretch | space-around | space-between | space-evenly;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h4 id="Grid-auto-columns-amp-Grid-auto-rows"><a href="#Grid-auto-columns-amp-Grid-auto-rows" class="headerlink" title="Grid-auto-columns &amp; Grid-auto-rows"></a>Grid-auto-columns &amp; Grid-auto-rows</h4><p>指定任何自动生成的Grid Track（又名<em>Implicit<br> Grid Track</em>）的大小。当明确定位超出定义的Grid范围的行或列（通过<code>grid-template-rows</code>/ <code>grid-template-columns</code>）时，会创建Implicit Grid Track。</p>
+<ul>
+<li><strong><track-size></track-size></strong> - 可以是Grid中的空闲空间的长度，百分比或是小部分（使用<code>fr</code>单位）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-auto-columns: &lt;track-size&gt; ...;</div><div class="line">  grid-auto-rows: &lt;track-size&gt; ...;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Example ：理解 Implicit Grid Track ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-template-columns: 60px 60px;</div><div class="line">  grid-template-rows: 90px 90px</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-7d0f1f633e9f9164.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建2 × 2的Grid"></p>
+<p>现在设想使用 <code>grid-column</code> 和 <code>grid-row</code> 定位这个Grid Items 是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 元素的属性知识.后面有讲，下面数字指 Grid Line 默认名</div><div class="line">.item-a &#123;</div><div class="line">  grid-column: 1 / 2;</div><div class="line">  grid-row: 2 / 3;</div><div class="line">&#125;</div><div class="line">.item-b &#123;</div><div class="line">  grid-column: 5 / 6;</div><div class="line">  grid-row: 2 / 3;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-bdd588697d57275e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Grid-Items"></p>
+<p>我们设置 .item -b 从列5行开始，到列6行结束，<em>但是我们没有定义列5或6</em>。<br>因为引用了不存在的行！所以创建了宽度为0的隐式轨道来填补空白。可以使用<code>grid-auto-columns</code>和<code>grid-auto-rows</code>指定这些隐式轨道的宽度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-auto-columns: 60px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-680943810e7338cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Result"></p>
+<hr>
+<h4 id="Grid-auto-flow"><a href="#Grid-auto-flow" class="headerlink" title="Grid-auto-flow"></a>Grid-auto-flow</h4><p>如果没有明确放置在Grid上的Grid Items，则自动放置算法会自动放置这些Items。该属性控制自动布局算法的。<br>可以理解是一种设置排序方向的属性（默认row<br> 从左到右，或从上到下的排序[流动方向].)</p>
+<ul>
+<li><strong>row</strong> - 告诉自动布局算法依次填充每行，根据需要添加新行</li>
+<li><strong>column</strong> - 告诉自动布局算法依次填充每列，根据需要添加新列</li>
+<li><strong>dense</strong> - 告诉自动布局算法，如果稍后出现较小的items，则尝试在Grid中的填充空位。(dense 可能导致项目出现乱序)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  grid-auto-flow: row | column | row dense | column dense</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">&lt;section class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;item-a&quot;&gt;item-a&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-b&quot;&gt;item-b&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-c&quot;&gt;item-c&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-d&quot;&gt;item-d&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;item-e&quot;&gt;item-e&lt;/div&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure>
+<p>定义一个五行两行的Grid，并设置grid-auto-flow为row（默认值）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  display: grid;</div><div class="line">  grid-template-columns: 60px 60px 60px 60px 60px;</div><div class="line">  grid-template-rows: 30px 30px;</div><div class="line">  grid-auto-flow: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.item-a &#123;</div><div class="line">  grid-column: 1;</div><div class="line">  grid-row: 1 / 3;</div><div class="line">&#125;</div><div class="line">.item-e &#123;</div><div class="line">  grid-column: 5;</div><div class="line">  grid-row: 1 / 3;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为设置了 grid-auto-flow 为 row…Grid会呈现这个样子：<br><img src="http://upload-images.jianshu.io/upload_images/4007920-f0871f11b7cebed6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Row"><br>如果是设置 grid-auto-flow 为column 那么则会呈现如下：<br><img src="http://upload-images.jianshu.io/upload_images/4007920-e7ac458c102e41f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Column"></p>
+<hr>
+<h3 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h3><p>简写模式：<br>可以设置的属性有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">grid-template-rows</div><div class="line">grid-template-columns</div><div class="line">grid-template-areas</div><div class="line">grid-auto-rows</div><div class="line">grid-auto-columns</div><div class="line">grid-auto-flow</div><div class="line">grid-column-gap</div><div class="line">grid-row-gap</div></pre></td></tr></table></figure></p>
+<p>可设置值：</p>
+<ul>
+<li><strong>none</strong> - 将所有子属性设置为初始值</li>
+<li><strong><grid-template-rows>/<grid-template-columns></grid-template-columns></grid-template-rows></strong> - 分别设置指定值，并将所有其他属性设置为其初始值</li>
+<li><strong><grid-auto-flow>[<grid-auto-rows>[/<grid-auto-columns>]]</grid-auto-columns></grid-auto-rows></grid-auto-flow></strong> - 接收所有相同的值 <code>grid-auto-flow</code>, <code>grid-auto-rows</code> 和<code>grid-auto-columns</code>.. 如果省略<code>grid-auto-columns</code> ，那么将其设置为<code>grid-auto-rows</code>指定的值. 如果两者都省略，那他们被设置为它们的初始值.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">    grid: none | &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt; | &lt;grid-auto-flow&gt; [&lt;grid-auto-rows&gt; [/ &lt;grid-auto-columns&gt;]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Example:</div><div class="line">.container &#123;</div><div class="line">  grid: 200px auto / 1fr auto 1fr;</div><div class="line">&#125;</div><div class="line">//  等于：</div><div class="line">.container &#123;</div><div class="line">  grid-template-rows: 200px auto;</div><div class="line">  grid-template-columns: 1fr auto 1fr;</div><div class="line">  grid-template-areas: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">.container &#123;</div><div class="line">  grid: column 1fr / auto;</div><div class="line">&#125;</div><div class="line">//  等于</div><div class="line">.container &#123;</div><div class="line">  grid-auto-flow: column;</div><div class="line">  grid-auto-rows: 1fr;</div><div class="line">  grid-auto-columns: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Grid 也接收一个更复杂 但相当方便的语法来一次性设置所有内容。<br>指定<code>grid-template-areas</code>,<code>grid-template-rows</code>和<code>grid-template-columns</code> 所有其他子属性都设置为其初始值…指定Line名称和Track 大小 与 它们各自的Grid Areas …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Example:</div><div class="line">.container &#123;</div><div class="line">  grid: [row1-start] &quot;header header header&quot; 1fr [row1-end]</div><div class="line">        [row2-start] &quot;footer footer footer&quot; 25px [row2-end]</div><div class="line">        / auto 50px auto;</div><div class="line">&#125;</div><div class="line">//  等于：</div><div class="line">.container &#123;</div><div class="line">  grid-template-areas: </div><div class="line">    &quot;header header header&quot;</div><div class="line">    &quot;footer footer footer&quot;;</div><div class="line">  grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];</div><div class="line">  grid-template-columns: auto 50px auto;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="父级属性（Grid-Container）-End"><a href="#父级属性（Grid-Container）-End" class="headerlink" title="父级属性（Grid Container） End"></a>父级属性（Grid Container） End</h1><hr>
+<h1 id="子元素属性-（Grid-Items）"><a href="#子元素属性-（Grid-Items）" class="headerlink" title="子元素属性 （Grid Items）"></a>子元素属性 （Grid Items）</h1><h4 id="grid-column-start-grid-column-end-grid-row-start-grid-row-end"><a href="#grid-column-start-grid-column-end-grid-row-start-grid-row-end" class="headerlink" title="grid-column-start | grid-column-end | grid-row-start | grid-row-end"></a>grid-column-start | grid-column-end | grid-row-start | grid-row-end</h4><p>通过引用特定的Grid-Line来确定Grid内Grid的位置。<code>grid-column-start</code>/ <code>grid-row-start</code>是Items开始的行/列，<code>grid-column-end</code>/ <code>grid-row-end</code>是Items结束的行/列。</p>
+<ul>
+<li><strong><number></number></strong> - 可以是一个数字来引用一个编号的Grid Line，或者一个名称来引用一个命名的Grid Line</li>
+<li><strong>span <number></number></strong> - Items 将跨越提供的Grid<br>Track 数量</li>
+<li><strong>span <name></name></strong> - Items 将跨越，直到它与提供的名称符合</li>
+<li><strong>auto</strong> - 指示自动放置，自动跨度或默认跨度</li>
+</ul>
+<p>Ps: Items可以相互重叠。可以使用 <code>z-index</code> 来控制其堆叠顺序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Example：</div><div class="line">.item-a &#123;</div><div class="line">  grid-column-start: 2;</div><div class="line">  grid-column-end: five;</div><div class="line">  grid-row-start: row1-start</div><div class="line">  grid-row-end: 3</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-da7aaf0085b93ef9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Example"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.item-b &#123;</div><div class="line">  grid-column-start: 1;</div><div class="line">  grid-column-end: span col4-start;</div><div class="line">  grid-row-start: 2</div><div class="line">  grid-row-end: span 2 // 跨越2个 Grid Track</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-6a63a4b072c175cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Example"></p>
+<hr>
+<h3 id="grid-column-grid-row"><a href="#grid-column-grid-row" class="headerlink" title="grid-column | grid-row"></a>grid-column | grid-row</h3><p>简写速记分别为<code>grid-column-start</code>+ <code>grid-column-end</code>和<code>grid-row-start</code>+ <code>grid-row-end</code></p>
+<ul>
+<li><strong><start-line> / <end-line></end-line></start-line></strong> - 每一个都接受相同的值，包括span<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  grid-column: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;</div><div class="line">  grid-row: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.item-c &#123;</div><div class="line">  grid-column: 3 / span 2;</div><div class="line">  grid-row: third-line / 4;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-44fc3b2c6b757568.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="如果没有声明结束行值，则该项目默认跨越1个轨道。"></p>
+<hr>
+<h3 id="Grid-Areas"><a href="#Grid-Areas" class="headerlink" title="Grid Areas"></a>Grid Areas</h3><p>为Items提供一个名称，以便可以通过使用该<code>grid-template-areas</code>属性创建的模板来引用它。<br>或者，此属性可以用作<code>grid-row-start</code>+ <code>grid-column-start</code>+ <code>grid-row-end</code>+ <code>grid-column-end</code>的更简短的缩写。</p>
+<ul>
+<li><strong><name></name></strong> - 选择的名称</li>
+<li><strong><row-start> / <column-start> / <row-end> / <column-end></column-end></row-end></column-start></row-start></strong>- 可以是数字或命名行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  grid-area: &lt;name&gt; | &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 方法一：可为 Items 分配名称</div><div class="line">.item-d &#123;</div><div class="line">  grid-area: header</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//  方法二： 可作为 row start + column start + row end + column end 的一次性简写</div><div class="line">.item-d &#123;</div><div class="line">  grid-area: 1 / col4-start / last-line / 6</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-98e2947524e5a516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="grid area 简写"></p>
+<hr>
+<h3 id="Justify-self"><a href="#Justify-self" class="headerlink" title="Justify-self"></a>Justify-self</h3><p>沿着<em>行</em>轴对齐Grid内的内容。此值适用于单个Grid Items 内的内容。</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的左端</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的右端</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个宽度（Default）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  justify-self: start | end | center | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Example:</div><div class="line">.item-a &#123;</div><div class="line">  justify-self: start;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/4007920-e4b0270a1c49dc03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<hr>
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><p>沿<em>列</em>轴对齐网格内的内容。此值适用于单个Grid Item内的内容。</p>
+<p>价值观：</p>
+<ul>
+<li><strong>start</strong> - 将内容对齐到Grid区域的顶部</li>
+<li><strong>end</strong> - 将内容对齐到Grid区域的底部</li>
+<li><strong>center</strong> - 将Grid区域中心的内容对齐</li>
+<li><strong>stretch</strong> - 填充Grid区域的整个高度（Default）</li>
+</ul>
+<hr>
+<h1 id="子元素属性-结束——End"><a href="#子元素属性-结束——End" class="headerlink" title="子元素属性 结束——End"></a>子元素属性 结束——End</h1><hr>
+<p>移植地点：<a href="http://chris.house/blog/a-complete-guide-css-grid-layout/" target="_blank" rel="external">Links</a><br>移植地点：<a href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows" target="_blank" rel="external">Links2</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2018/02/05/Grid布局/" data-id="cjd9qc641000b9b9z09brqbfx" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grid/">Grid</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/03/函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">函数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

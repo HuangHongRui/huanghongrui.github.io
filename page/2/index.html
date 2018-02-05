@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="锐锐君的个人技术博客,Web,前端">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rui&#39;s Blog">
+<meta property="og:url" content="http://blog.luckyman.xyz/page/2/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="锐锐君的个人技术博客,Web,前端">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rui&#39;s Blog">
+<meta name="twitter:description" content="锐锐君的个人技术博客,Web,前端">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-DailyQuestion-3" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/28/DailyQuestion-3/" class="article-date">
+  <time class="post-time" datetime="2017-10-27T16:30:22.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">28</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/28/DailyQuestion-3/">Merge Two Binary Trees</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/每日一题/">每日一题</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.</p>
+<p>You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.</p>
+<p>Example 1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Input: </div><div class="line">	Tree 1                     Tree 2                  </div><div class="line">          1                         2                             </div><div class="line">         / \                       / \                            </div><div class="line">        3   2                     1   3                        </div><div class="line">       /                           \   \                      </div><div class="line">      5                             4   7                  </div><div class="line">Output: </div><div class="line">Merged tree:</div><div class="line">	     3</div><div class="line">	    / \</div><div class="line">	   4   5</div><div class="line">	  / \   \ </div><div class="line">	 5   4   7</div></pre></td></tr></table></figure></p>
+<p>Note: The merging process must start from the root nodes of both trees.</p>
+<p>解答：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.   </div><div class="line"> * function TreeNode(val) &#123;             </div><div class="line"> *     this.val = val;</div><div class="line"> *     this.left = this.right = null;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">/**</div><div class="line"> * @param &#123;TreeNode&#125; t1</div><div class="line"> * @param &#123;TreeNode&#125; t2</div><div class="line"> * @return &#123;TreeNode&#125;</div><div class="line"> */</div><div class="line"></div><div class="line">var mergeTrees = function(t1, t2) &#123;</div><div class="line">      if(t1 !== null || t2 !== null) &#123;</div><div class="line">          var tmp = new TreeNode();</div><div class="line">          if(t1 !== null &amp;&amp; t1 !== undefined) &#123;</div><div class="line">              tmp.val = t1.val;</div><div class="line">          &#125;else&#123;</div><div class="line">              tmp.val= null</div><div class="line">          &#125;</div><div class="line">          if(t2 !== null) tmp.val += t2.val;</div><div class="line">          tmp.left = mergeTrees ((t1 !== null) ? t1.left : null, (t2 !== null) ? t2.left : null);</div><div class="line">          tmp.right = mergeTrees ((t1 !== null) ? t1.right : null, (t2 !== null) ? t2.right : null);</div><div class="line">          return tmp;</div><div class="line">      &#125;</div><div class="line">      else return null;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/10/28/DailyQuestion-3/" data-id="cjd9qc64000079b9zztkh4yc0" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法题/">算法题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-DailyQuestion-2" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/27/DailyQuestion-2/" class="article-date">
+  <time class="post-time" datetime="2017-10-26T16:30:22.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">27</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/27/DailyQuestion-2/">Judge Route Circle</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/每日一题/">每日一题</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place.</p>
+<p>The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle.<br>栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Example 1:</div><div class="line">Input: &quot;UD&quot;</div><div class="line">Output: true</div><div class="line">Example 2:</div><div class="line">Input: &quot;LL&quot;</div><div class="line">Output: false</div></pre></td></tr></table></figure></p>
+<p>破解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * @param &#123;string&#125; moves</div><div class="line"> * @return &#123;boolean&#125;</div><div class="line"> */</div><div class="line">var judgeCircle = function(moves) &#123;</div><div class="line">    let ifString = typeof(moves),   //判断字符串</div><div class="line">       ifLen = moves.length,        //判断长度</div><div class="line">       numObj = &#123;&#125;,                 //对象收集action出现的次数</div><div class="line">       result;</div><div class="line">    if(ifString === &apos;string&apos; &amp;&amp; ifLen &gt;= 2 )&#123;   //第一条件</div><div class="line">        for(let i=0; i&lt;ifLen; i++)&#123;</div><div class="line">            if(numObj[moves[i]])&#123;</div><div class="line">                numObj[moves[i]]++</div><div class="line">            &#125;else&#123;</div><div class="line">                numObj[moves[i]]=1</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        // 只有左右、上下执行相同次数相等，才会回归到原来的位置（0,0）</div><div class="line">        if(numObj[&apos;U&apos;] === numObj[&apos;D&apos;] &amp;&amp; numObj[&apos;L&apos;] === numObj[&apos;R&apos;])&#123;</div><div class="line">            result = true;</div><div class="line">        &#125;else&#123;</div><div class="line">            result = false</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return result</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/10/27/DailyQuestion-2/" data-id="cjd9qc63z00069b9z4w5g8fx9" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法题/">算法题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-DailyQuestion-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/DailyQuestion-1/" class="article-date">
+  <time class="post-time" datetime="2017-10-25T17:27:16.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/DailyQuestion-1/">两数之间的汉明距离</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/每日一题/">每日一题</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>两个整数之间的 <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank" rel="external">汉明距离</a> 是相应位不同的位置数。<br>给定两个整数，x并y计算汉明距离。<br>条件： <code>0 ≤ x，y &lt;2的31次方</code></p>
+<p>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">输入： x = 1，y = 4 输出： 2 说明： </div><div class="line">1（0 0 0 1）</div><div class="line">4（0 1 0 0）</div><div class="line">     ↑   ↑ </div><div class="line">上述箭头指向相应位不同的位置。</div></pre></td></tr></table></figure>
+<p>解答：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">var hammingDistance = function(x, y) &#123;</div><div class="line">    var xBinary = x.toString(2),        //转为二进制</div><div class="line">        yBinary = y.toString(2),</div><div class="line">        xLen = xBinary.length,          //二进制的个数</div><div class="line">        yLen = yBinary.length,</div><div class="line">        yMaxNum = Math.pow(2,31),       //条件中的y的最大值</div><div class="line">        diffNum = Math.abs(xLen - yLen),//两参的个数差</div><div class="line">        resultNum = 0;                  //汉明距离</div><div class="line">    // 相比.个数少的二进制将在其前面加上（差数）个0；</div><div class="line">    function zero(sNum,diffNum)&#123;</div><div class="line">        for(var i=1; i&lt;diffNum+1; i++)&#123;</div><div class="line">            sNum = i*0 + sNum</div><div class="line">        &#125;</div><div class="line">        return sNum</div><div class="line">    &#125;</div><div class="line">    // 对比2个参数，如同个位上的值不同，则resultNum++；</div><div class="line">    function contrastNum(x,y)&#123;</div><div class="line">        for(var i=0; i&lt;x.length; i++)&#123;</div><div class="line">            if(x[i] != y[i])&#123;</div><div class="line">                resultNum++</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return resultNum</div><div class="line">    &#125;</div><div class="line">    if(x &gt;= 0 &amp;&amp; y &lt; yMaxNum)&#123;</div><div class="line">        switch(true)&#123;</div><div class="line">                case(xLen &gt; yLen):</div><div class="line">                    yBinary = zero(yBinary,diffNum);</div><div class="line">                    break;</div><div class="line">                case(xLen &lt; yLen):</div><div class="line">                    xBinary = zero(xBinary,diffNum);</div><div class="line">                    break;</div><div class="line">            default:</div><div class="line">                console.log(1)</div><div class="line">        &#125;</div><div class="line">        contrastNum(xBinary,yBinary)</div><div class="line">    &#125;</div><div class="line">    return(resultNum)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/10/26/DailyQuestion-1/" data-id="cjd9qc63u00029b9zozjj9pcg" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法题/">算法题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-输入URL到显示页面步骤" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/25/输入URL到显示页面步骤/" class="article-date">
+  <time class="post-time" datetime="2017-10-25T06:26:28.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">25</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/25/输入URL到显示页面步骤/">输入URL到显示页面步骤</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/HTTP/">HTTP</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-在Client地址栏输入URL-协议、域名、文件路径、端口"><a href="#1-在Client地址栏输入URL-协议、域名、文件路径、端口" class="headerlink" title="1_ 在Client地址栏输入URL. (协议、域名、文件路径、端口)"></a>1_ 在Client地址栏输入URL. (协议、域名、文件路径、端口)</h3><h3 id="2-Client检查缓存"><a href="#2-Client检查缓存" class="headerlink" title="2_ Client检查缓存."></a>2_ Client检查缓存.</h3><ul>
+<li>有缓存：<ul>
+<li>未过期：跳转到转码步骤</li>
+<li>过期：与Server进行验证</li>
+</ul>
+</li>
+<li>无缓存：<ul>
+<li>发起新请求 </li>
+</ul>
+</li>
+</ul>
+<p>检验缓存有效期通常有两个HTTP头进行控制 <code>Expires</code> 和 <code>Cache-Control</code><br>HTTP1.0提供Expires，值为一个绝对时间表示缓存新鲜日期. (容易因为时区或电脑时间有误导致失效)<br>HTTP1.1增加了Cache-Control: max-age=,值为以秒为单位的最大有效期时间. </p>
+<h3 id="3-Client解析URL获取协议，主机-文件路径，端口"><a href="#3-Client解析URL获取协议，主机-文件路径，端口" class="headerlink" title="3_ Client解析URL获取协议，主机, 文件路径，端口"></a>3_ Client解析URL获取协议，主机, 文件路径，端口</h3><h3 id="4-Client组装一个HTTP（GET）请求报文"><a href="#4-Client组装一个HTTP（GET）请求报文" class="headerlink" title="4_ Client组装一个HTTP（GET）请求报文"></a>4_ Client组装一个HTTP（GET）请求报文</h3><h3 id="5-Client获取主机ip地址，过程如下："><a href="#5-Client获取主机ip地址，过程如下：" class="headerlink" title="5_ Client获取主机ip地址，过程如下："></a>5_ Client获取主机ip地址，过程如下：</h3><ul>
+<li>Client缓存</li>
+<li>本机缓存</li>
+<li>hosts文件</li>
+<li>路由器缓存</li>
+<li>ISP DNS缓存</li>
+<li>DNS递归查询 </li>
+</ul>
+<p><img src="http://blog.luckyman.xyz/box/Pic/ServerIP.svg" alt=""></p>
+<h3 id="6-打开一个-套接字-socket与目标IP地址，端口建立TCP链接，三次握手如下：详细文章"><a href="#6-打开一个-套接字-socket与目标IP地址，端口建立TCP链接，三次握手如下：详细文章" class="headerlink" title="6_ 打开一个(套接字)socket与目标IP地址，端口建立TCP链接，三次握手如下：详细文章"></a>6_ 打开一个(套接字)socket与目标IP地址，端口建立TCP链接，三次握手如下：<a href="http://blog.luckyman.xyz/2017/08/14/TCP%E4%BC%A0%E8%BE%93%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%AD%96%E7%95%A5/">详细文章</a></h3><blockquote>
+<p>客户端发送一个TCP的SYN=1，Seq=X的报文段到Server<br>Server发回 SYN=1， ACK=X+1， Seq=Y的响应包<br>客户端发送ACK=Y+1 ,Server收到后建立链接成功 </p>
+</blockquote>
+<h3 id="7-TCP链接建立后发送HTTP请求"><a href="#7-TCP链接建立后发送HTTP请求" class="headerlink" title="7_ TCP链接建立后发送HTTP请求."></a>7_ TCP链接建立后发送HTTP请求.</h3><h3 id="8-Server接受请求并解析，将请求转发到服务程序-（如虚拟主机使用HTTP-Host头部判断请求的服务程序-）"><a href="#8-Server接受请求并解析，将请求转发到服务程序-（如虚拟主机使用HTTP-Host头部判断请求的服务程序-）" class="headerlink" title="8_ Server接受请求并解析，将请求转发到服务程序.. （如虚拟主机使用HTTP Host头部判断请求的服务程序.）"></a>8_ Server接受请求并解析，将请求转发到服务程序.. （如虚拟主机使用HTTP Host头部判断请求的服务程序.）</h3><h3 id="9-Server检查HTTP请求头是否包含缓存验证信息-（如果验证缓存有效，返回304等对应状态码-）"><a href="#9-Server检查HTTP请求头是否包含缓存验证信息-（如果验证缓存有效，返回304等对应状态码-）" class="headerlink" title="9_ Server检查HTTP请求头是否包含缓存验证信息.. （如果验证缓存有效，返回304等对应状态码.）"></a>9_ Server检查HTTP请求头是否包含缓存验证信息.. （如果验证缓存有效，返回304等对应状态码.）</h3><h3 id="10-处理程序读取完整请求并准备HTTP响应-（可能需要查询数据库等操作-）"><a href="#10-处理程序读取完整请求并准备HTTP响应-（可能需要查询数据库等操作-）" class="headerlink" title="10_ 处理程序读取完整请求并准备HTTP响应.（可能需要查询数据库等操作 ）"></a>10_ 处理程序读取完整请求并准备HTTP响应.（可能需要查询数据库等操作 ）</h3><h3 id="11-Server将响应报文通过TCP连接发送回Client"><a href="#11-Server将响应报文通过TCP连接发送回Client" class="headerlink" title="11_ Server将响应报文通过TCP连接发送回Client."></a>11_ Server将响应报文通过TCP连接发送回Client.</h3><h3 id="12-Client接收HTTP响应，然后根据情况选择关闭TCP连接或者保留重用，关闭TCP连接的四次挥手如下：-主动方可以说Server-或-Client"><a href="#12-Client接收HTTP响应，然后根据情况选择关闭TCP连接或者保留重用，关闭TCP连接的四次挥手如下：-主动方可以说Server-或-Client" class="headerlink" title="12_ Client接收HTTP响应，然后根据情况选择关闭TCP连接或者保留重用，关闭TCP连接的四次挥手如下：(主动方可以说Server 或 Client)"></a>12_ Client接收HTTP响应，然后根据情况选择关闭TCP连接或者保留重用，关闭TCP连接的四次挥手如下：(主动方可以说Server 或 Client)</h3><blockquote>
+<ol>
+<li>主动方发送Fin=1， Ack=Z， Seq= X报文.</li>
+<li>被动方发送ACK=X+1报文</li>
+<li>被动方发送Fin=1，Seq=Y报文</li>
+<li>主动方发送ACK=Y报文 </li>
+</ol>
+</blockquote>
+<h3 id="13-Client检查响应状态吗：是否为1XX，3XX，-4XX，-5XX，这些情况处理与2XX不同"><a href="#13-Client检查响应状态吗：是否为1XX，3XX，-4XX，-5XX，这些情况处理与2XX不同" class="headerlink" title="13_ Client检查响应状态吗：是否为1XX，3XX， 4XX， 5XX，这些情况处理与2XX不同"></a>13_ Client检查响应状态吗：是否为1XX，3XX， 4XX， 5XX，这些情况处理与2XX不同</h3><h3 id="14-如果资源可缓存，进行缓存"><a href="#14-如果资源可缓存，进行缓存" class="headerlink" title="14_ 如果资源可缓存，进行缓存"></a>14_ 如果资源可缓存，进行缓存</h3><h3 id="15-对响应进行解码（如gzip压缩）"><a href="#15-对响应进行解码（如gzip压缩）" class="headerlink" title="15_ 对响应进行解码（如gzip压缩）"></a>15_ 对响应进行解码（如gzip压缩）</h3><h3 id="16-根据资源类型决定如何处理（如资源为HTML文档）"><a href="#16-根据资源类型决定如何处理（如资源为HTML文档）" class="headerlink" title="16_ 根据资源类型决定如何处理（如资源为HTML文档）"></a>16_ 根据资源类型决定如何处理（如资源为HTML文档）</h3><h3 id="17-解析HTML文档、构件DOM树、下载资源、构造CSSOM树、执行js脚本，这些操作没有严格的先后顺序，以下分别解释"><a href="#17-解析HTML文档、构件DOM树、下载资源、构造CSSOM树、执行js脚本，这些操作没有严格的先后顺序，以下分别解释" class="headerlink" title="17_ 解析HTML文档、构件DOM树、下载资源、构造CSSOM树、执行js脚本，这些操作没有严格的先后顺序，以下分别解释"></a>17_ <strong>解析HTML文档、构件DOM树、下载资源、构造CSSOM树、执行js脚本</strong>，这些操作没有严格的先后顺序，以下分别解释</h3><h3 id="18-构建DOM树："><a href="#18-构建DOM树：" class="headerlink" title="18_ 构建DOM树："></a>18_ 构建DOM树：</h3><ul>
+<li>Tokenizing：根据HTML规范将字符流解析为标记</li>
+<li>Lexing：词法分析将标记转换为对象并定义属性和规则</li>
+<li>DOM construction：根据HTML标记关系将对象组成DOM树</li>
+</ul>
+<h3 id="19-解析过程中遇到图片、样式表、js文件，启动下载"><a href="#19-解析过程中遇到图片、样式表、js文件，启动下载" class="headerlink" title="19_ 解析过程中遇到图片、样式表、js文件，启动下载"></a>19_ 解析过程中遇到图片、样式表、js文件，启动下载</h3><h3 id="20-构建CSSOM树："><a href="#20-构建CSSOM树：" class="headerlink" title="20_ 构建CSSOM树："></a>20_ 构建CSSOM树：</h3><ul>
+<li>Tokenizing：字符流转换为标记流</li>
+<li>Node：根据标记创建节点</li>
+<li>CSSOM：节点创建CSSOM树</li>
+</ul>
+<h3 id="21-根据DOM树和CSSOM树构建渲染树"><a href="#21-根据DOM树和CSSOM树构建渲染树" class="headerlink" title="21_ 根据DOM树和CSSOM树构建渲染树"></a>21_ 根据DOM树和CSSOM树构建渲染树</h3><ul>
+<li>从DOM树的根节点遍历所有可见节点**，不可见节点包括：1）script,meta这样本身不可见的标签。2)被css隐藏的节点，如display: none</li>
+<li>对每一个可见节点，找到恰当的CSSOM规则并应用</li>
+<li>发布可视节点的内容和计算样式</li>
+</ul>
+<h3 id="22-JS解析如下："><a href="#22-JS解析如下：" class="headerlink" title="22_ JS解析如下："></a>22_ JS解析如下：</h3><ul>
+<li>Client创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时document.readystate为loading</li>
+<li>HTML解析器遇到没有async和defer的script时，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。同步脚本经常简单定义函数和注册事件处理程序，他们可以遍历和操作script和他们之前的文档内容</li>
+<li>当解析器遇到设置了async属性的script时，开始下载脚本并继续解析文档。脚本会在它下载完成后尽快执行，但是解析器不会停下来等它下载。异步脚本禁止使用document.write()，它们可以访问自己script和之前的文档元素<br>当文档完成解析，document.readState变成interactive</li>
+<li>所有defer脚本会按照在文档出现的顺序执行，延迟脚本能访问完整文档树，禁止使用document.write()</li>
+<li>Client在Document对象上触发DOMContentLoaded事件</li>
+<li>此时文档完全解析完成，Client可能还在等待如图片等内容加载，等这些内容完成载入并且所有异步脚本完成载入和执行，document.readState变为complete,window触发load事件</li>
+</ul>
+<h3 id="23-显示页面（HTML解析过程中会逐步显示页面）"><a href="#23-显示页面（HTML解析过程中会逐步显示页面）" class="headerlink" title="23_ 显示页面（HTML解析过程中会逐步显示页面）"></a>23_ 显示页面（HTML解析过程中会逐步显示页面）</h3><p>搬运参考：</p>
+<p><a href="http://www.jianshu.com/p/551e92a02dc8" target="_blank" rel="external">从浏览器地址栏输入URL到显示页面的步骤（http为例）</a><br><a href="https://www.zhihu.com/question/34873227" target="_blank" rel="external">在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/10/25/输入URL到显示页面步骤/" data-id="cjd9qc65r002r9b9zagdus2kp" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/URL/">URL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-JavaScript数据结构" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/08/JavaScript数据结构/" class="article-date">
+  <time class="post-time" datetime="2017-09-08T12:53:33.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/08/JavaScript数据结构/">JavaScript数据结构</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>数据结构</strong> 可简单的分为：</p>
+<ul>
+<li>线性结构</li>
+<li>非线性结构</li>
+</ul>
+<p>线性结构大致包括：</p>
+<ol>
+<li>数组（连续存储）</li>
+<li>链表（离散存储）</li>
+<li>栈（线性结构常见应用，由链表或数组增删和改进功能实现）</li>
+<li>队列（线性结构常见应用，由链表或数组增删和改进功能实现）</li>
+</ol>
+<p>非线性结构大致包括：</p>
+<ol>
+<li>树；</li>
+<li>图；</li>
+</ol>
+<p>转载地址：<br><a href="http://www.alloyteam.com/2015/09/brief-javascript-data-structures-and-algorithms-the-array/" target="_blank" rel="external">JavaScript数据结构和算法简述</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/09/08/JavaScript数据结构/" data-id="cjd9qc649000h9b9zm2h1y58v" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-闭包" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/05/闭包/" class="article-date">
+  <time class="post-time" datetime="2017-09-05T07:26:28.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/05/闭包/">闭包</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h4><ul>
+<li>函数嵌套函数</li>
+<li>函数内部可以引用外部的参数或变量</li>
+<li>参数和变量不会被垃圾回收机制回收</li>
+</ul>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>希望一个变量长期驻扎在内存中</li>
+<li>避免全局变量污染</li>
+<li>存放私有成员</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>常驻内存，会增大内存使用量，使用不得当容易造成 <em>内存泄漏</em>.</li>
+</ul>
+<p>内存泄漏：用不到（访问不到）的变量，依然占居着内存空间，不能被再次利用起来。</p>
+<h4 id="使用目的："><a href="#使用目的：" class="headerlink" title="使用目的："></a>使用目的：</h4><ul>
+<li>用来「间接访问一个变量」。换句话说，「隐藏一个变量」</li>
+<li>设计私有方法 或 变量，避免全局变量污染。希望一个变量常驻于内存中。</li>
+</ul>
+<p>参考文章：<br><a href="https://segmentfault.com/a/1190000000652891" target="_blank" rel="external">详解js闭包</a><br><a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="external">JS 中的闭包是什么？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/09/05/闭包/" data-id="cjd9qc65l002l9b9z6vokx7go" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-前端路由实现" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/前端路由实现/" class="article-date">
+  <time class="post-time" datetime="2017-09-02T11:40:30.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/前端路由实现/">前端路由实现</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>H5 History新增两个API，都会操作浏览器的历史记录，且不会引页面刷新：</p>
+<ol>
+<li><code>window.history.pushState(stateObj, title, URL)</code></li>
+<li><code>window.history.replaceState(stateObj, title, URL)</code></li>
+</ol>
+<p>Hash 即URL中看到的<code>#</code>，我们需要一个根据监听Hash触发的事件（hashChange）。可用 <code>window.location</code> 处理Hash改变时不会重新渲染页面，而是当作新页面添加到历史记录中，这样我们跳转页面就可在（hashChange）事件中注册 ajax 从而改变页面内容。可以为hash的改变添加监听事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;hashChange&apos;,fun,false)</div></pre></td></tr></table></figure></p>
+<p>从性能和用户体验的层面来比较的话，后端路由每次访问一个新页面的时候都需要向服务器发送请求，然后服务器在响应请求，此过程肯定有延迟。而前端路由，在访问一个新页面的时候仅仅是变化了一下路径而已，没有了网络延迟，那么对于用户体验来说会有相当大的提升。</p>
+<p>开发一个前端路由，主要考虑有 页面的可插拔、页面的生命周期和内存管理。</p>
+<p>前端路由的优点：</p>
+<ul>
+<li>前端路由还有很多优点，比如让页面持久性，像大部分音乐网站，都可以在播放歌曲的同时，挑战到其他的页面，而音乐不会中断；还有如前后端彻底分离。</li>
+</ul>
+<p>前端路由的缺点：</p>
+<ul>
+<li>使用浏览器的 <em>前进</em> 或 <em>后退</em> 功能的时候会导致重新发送请求，没有合理的利用缓存。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/09/02/前端路由实现/" data-id="cjd9qc64u001f9b9zl7hrmc0a" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/路由/">路由</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-双向数据绑定与单向数据绑定的优缺点" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/28/双向数据绑定与单向数据绑定的优缺点/" class="article-date">
+  <time class="post-time" datetime="2017-08-28T10:02:57.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">28</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/28/双向数据绑定与单向数据绑定的优缺点/">双向数据绑定与单向数据绑定的优缺点</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/框架/">框架</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>只有 UI控件 才存在双向数据绑定，非UI控件只有单向数据绑定。</p>
+<p>单向数据绑定的优点：</p>
+<ul>
+<li>可带来单向数据流。<ul>
+<li>让流动方向可以追踪。</li>
+<li>因为流动单一、无状态，使得单向绑定能够避免状态管理在复杂度上升时产生的各种问题。</li>
+<li>程序的调试变得相对容易些。</li>
+<li>利于状态的维护和优化。</li>
+<li>利于组件之间的通信。</li>
+<li>利于组件的复用。</li>
+</ul>
+</li>
+</ul>
+<p>双向数据绑定的优点：</p>
+<ul>
+<li>双向数据流<ul>
+<li>无需进行和单向数据绑定的那些CRUD操作（Create，Retrieve，Update，Delete）</li>
+<li>在一些需要实时反应用户输入的场合会非常方便。</li>
+</ul>
+</li>
+</ul>
+<p>双向绑定的缺点：<br>双向数据流是自动管理状态的，在实际应用中会有很多不得不手动处理状态变化的逻辑，使得程序复杂度提升，无法追踪局部状态的变化、双向数据流、值还有UI绑定，但是由于各种数据互相依赖绑定，导致数据问题的源头难以被追踪到。</p>
+<p>双向与单向的差异：<br>在于双向绑定把数据变更的操作隐藏在框架内部，调用者不会直接感知。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/08/28/双向数据绑定与单向数据绑定的优缺点/" data-id="cjd9qc64w001l9b9zq2kwofub" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据绑定/">数据绑定</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-移动端兼容问题" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/24/移动端兼容问题/" class="article-date">
+  <time class="post-time" datetime="2017-08-24T07:47:00.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">24</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/24/移动端兼容问题/">移动端兼容问题</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端知识/">Web前端知识</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>某些情况下对非可点击元素（<code>label</code>,<code>span</code>）监听<code>click</code>事件，ios下不会触发。</p>
+<blockquote>
+<p>CSS增加 <code>cursor:pointer</code>即可解决。</p>
+</blockquote>
+</li>
+<li><p><code>position</code> 在Safari下的两个定位都需要设置，只设置一个容易发生错乱。</p>
+</li>
+<li><p><code>input</code> 的 <code>placehodler</code> 会出现文本位置偏上的情况。</p>
+<blockquote>
+<p>PC端设置<code>line-height</code>等于<code>height</code>可解决，而移动端需要设置 <code>line-height:normal</code> 才可解决。</p>
+</blockquote>
+</li>
+<li><p><code>zepto</code> 点击穿透问题。</p>
+<blockquote>
+<p>引入<code>fastclick</code>可解决。</p>
+</blockquote>
+</li>
+<li><p>当输入框在最底部时，弹起的虚拟键盘会把输入框遮住。</p>
+<blockquote>
+<p><code>Element.scrollIntoViewIfNeeded(opt_center)</code></p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/08/24/移动端兼容问题/" data-id="cjd9qc65b00289b9z9yjhjwky" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容/">兼容</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-React与Vue的区别" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/23/React与Vue的区别/" class="article-date">
+  <time class="post-time" datetime="2017-08-23T08:31:00.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/React与Vue的区别/">React与Vue的区别</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/框架/">框架</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相同：</p>
+<ul>
+<li>支持服务端渲染</li>
+<li>有Virtual DOM</li>
+<li>组件化开发</li>
+<li>通过 <code>props</code> 参数进行父子组件数据的传递</li>
+<li>实现 <code>WebComponents</code> 规范</li>
+<li>数据驱动视图</li>
+<li>支持 <code>native</code> 方案——(React native &amp; Vue weex)</li>
+</ul>
+<p>不同：</p>
+<ul>
+<li>react 严格只针对MVC的View层 ，Vue 是MVVM模式</li>
+<li><strong>Virtual DOM 不同</strong>。Vue会跟踪每一个组件的依赖关系，不需要重新渲染整个组件树。 React则是每当应用状态被更改时，全部子组件都会重新渲染——可通过<code>shouldComponentUpdate</code> 这个生命周期方法进行控制。</li>
+<li><strong>组件写法不同</strong>。 React 推荐 JSX + inline Style写法，则是把HTML&amp;CSS全部写入JavaScript中，即’All in JS’。Vue 推荐的是使用 Webpack + Vue-loader 的单文件组件格式，即html&amp;CSS&amp;JS写在同一文件中。</li>
+<li><strong>数据绑定不同</strong>。 Vue实现了双向数据绑定，React则是单向数据流。</li>
+<li><strong>State 对象更新不同</strong>。在React应用中是不可改变的，需要使用<code>setState</code>方法来更新状态；而Vue中，state对象不是必需的，数据由data属性在Vue对象中进行管理。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2017/08/23/React与Vue的区别/" data-id="cjd9qc64h000v9b9z1wlujrwp" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/框架/">框架</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

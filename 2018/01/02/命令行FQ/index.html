@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>命令行FQ | Rui&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="近期，使用终端 git clone 拉取包，每秒达到4KB高速…干等可是要等到明年才有可能clone下来.. 一直开机启动飞机FQ…为什么还这么慢… 想起一个大佬前天刚提到命令行FQ..（命令行还要另外再翻？） 好吧，鼓捣命令行FQ前搜了下Google看有没其他办法…有以下方法: (好像都没卵用) 12$ git config --global http.proxy http://proxyuse">
+<meta name="keywords" content="FQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令行FQ">
+<meta property="og:url" content="http://blog.luckyman.xyz/2018/01/02/命令行FQ/index.html">
+<meta property="og:site_name" content="Rui&#39;s Blog">
+<meta property="og:description" content="近期，使用终端 git clone 拉取包，每秒达到4KB高速…干等可是要等到明年才有可能clone下来.. 一直开机启动飞机FQ…为什么还这么慢… 想起一个大佬前天刚提到命令行FQ..（命令行还要另外再翻？） 好吧，鼓捣命令行FQ前搜了下Google看有没其他办法…有以下方法: (好像都没卵用) 12$ git config --global http.proxy http://proxyuse">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T04:14:09.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="命令行FQ">
+<meta name="twitter:description" content="近期，使用终端 git clone 拉取包，每秒达到4KB高速…干等可是要等到明年才有可能clone下来.. 一直开机启动飞机FQ…为什么还这么慢… 想起一个大佬前天刚提到命令行FQ..（命令行还要另外再翻？） 好吧，鼓捣命令行FQ前搜了下Google看有没其他办法…有以下方法: (好像都没卵用) 12$ git config --global http.proxy http://proxyuse">
+  
+    <link rel="alternate" href="/atom.xml" title="Rui&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://raw.githubusercontent.com/HuangHongRui/Website_Page/master/src/img/hzw/39.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-命令行FQ" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/02/命令行FQ/" class="article-date">
+  <time class="post-time" datetime="2018-01-02T02:16:56.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      命令行FQ
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/使用操作/">使用操作</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期，使用终端 <code>git clone</code> 拉取包，每秒达到4KB高速…干等可是要等到明年才有可能clone下来..</p>
+<p>一直开机启动飞机FQ…为什么还这么慢…</p>
+<p>想起一个大佬前天刚提到命令行FQ..（命令行还要另外再翻？）</p>
+<p>好吧，鼓捣命令行FQ前搜了下Google看有没其他办法…<br>有以下方法: (好像都没卵用)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080</div><div class="line">$ git config --global https.proxy https://proxyuser:proxypwd@proxy.server.com:8080</div></pre></td></tr></table></figure>
+<p>无非都是这种更改 git 配置…的操作</p>
+<p>没有奏效..还是保持4KB..继续折腾，选择命令行FQ：</p>
+<h2 id="步骤1：下载"><a href="#步骤1：下载" class="headerlink" title="步骤1：下载"></a>步骤1：下载</h2><p><a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">Git_proxychains-ng</a><br><a href="https://sourceforge.net/projects/proxychains-ng/files/" target="_blank" rel="external">proxychains-ng</a></p>
+<h2 id="步骤2：编译"><a href="#步骤2：编译" class="headerlink" title="步骤2：编译"></a>步骤2：编译</h2><p>解压包，进入文件夹<br>输入 <code>make</code> ；<br>输入 <code>./configure --prefix=/usr --sysconfdir=/etc</code><br>提示：<code>Done, now run make &amp;&amp; make install</code><br>输入：<code>make &amp;&amp; make install</code>(可能会报错.我报了，所以继续下面操作)<br>输入：<code>sudo make install</code><br>输入：<code>sudo make install-config</code><br>输入：<code>make &amp;&amp; make install</code>(没报错了…Done)</p>
+<h2 id="步骤3：配置"><a href="#步骤3：配置" class="headerlink" title="步骤3：配置"></a>步骤3：配置</h2><p>下载配置文件：<code>curl -L https://raw.githubusercontent.com/FrankFang/dot-files/master/proxychains.conf &gt; ~/.proxychains.conf</code><br>配置 bash alias 快捷<br>运行：<code>touch ~/.bashrc; echo &#39;alias pc=&quot;proxychains4 -f ~/.proxychains.conf&quot;&#39; &gt;&gt; ~/.bashrc</code><br>运行：<code>source ~/.bashrc</code><br>好了…</p>
+<h3 id="尝试："><a href="#尝试：" class="headerlink" title="尝试："></a>尝试：</h3><p><code>pc git clone</code> 拉取想要的包吧..<br><code>pc brew install</code> 安装…<br>前面带自己设置的快捷命令即可～</p>
+<h3 id="预防："><a href="#预防：" class="headerlink" title="预防："></a>预防：</h3><p>有的大佬可能会遇到一种情况，<br>就是每次打开一个终端（Mac:Terminal）.<br>都需要 source ~/.bashrc.. 很是麻烦.<br>所以让为了让其自动执行该命令..把命令放到 .bash_profile 里去..如下～<br><code>touch ~/.bash_profile; echo &#39;source ~/.bashrc&#39;&gt;&gt; ~/.bash_profile</code></p>
+<p>Done..</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.luckyman.xyz/2018/01/02/命令行FQ/" data-id="cjd9qc64y001q9b9zu1zcu3vm" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FQ/">FQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/03/函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/23/近期小结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">近期小结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Rui&#39;s Blog</h1>
+    <h2 class="blog-subtitle">不学则汰,无策则乱..</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://huanghongrui.github.io/css/images/lufei.jpg">
+    <h2 class="author">Rui.</h2>
+    <h3 class="description">锐锐君的个人技术博客,Web,前端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>35</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>14</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>35</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/HuangHongRui" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.csdn.net/leonishuang" target="_blank" title="CSDN_Blog">
+          CSDN_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.jianshu.com/u/4fe15f8f16d3" target="_blank" title="简书_Blog">
+          简书_Blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.liyu0906.cn/" target="_blank" title="Albert">
+          Albert
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://spontaleo.github.io/" target="_blank" title="SpontaLeo">
+          SpontaLeo
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://frankietang.github.io/" target="_blank" title="Frankie Tang">
+          Frankie Tang
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 Rui.<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=269&web_id=269" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
